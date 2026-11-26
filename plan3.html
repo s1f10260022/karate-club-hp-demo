@@ -346,29 +346,51 @@
       object-fit: cover;
     }
 
-    .slide-overlay-caption {
-      position: absolute;
-      bottom: 36px;
-      left: 36px;
-      right: 84px;
-      background: rgba(255, 255, 255, 0.94);
-      color: var(--ink-dark);
-      padding: 20px 24px;
-      backdrop-filter: blur(8px);
-      border-left: 4px solid var(--theme-color);
-      transition: border-color 0.7s ease;
-    }
+.slide-overlay-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 72px;
+  /* 半透明の白 ＋ すりガラスぼかし */
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--ink-dark);
+  padding: 16px 20px;
+  border-left: 4px solid var(--theme-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: border-color 0.7s ease;
+}
 
-    .slide-overlay-caption h2 {
-      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
-      font-weight: 900;
-      margin-bottom: 4px;
-    }
+.slide-overlay-caption h2 {
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
 
-    .slide-overlay-caption p {
-      font-size: 0.88rem;
-      color: var(--ink-muted);
-    }
+.slide-overlay-caption p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #27272a; /* 半透明でも文字がぼやけないよう少し濃いグレーに */
+}
+
+/* スマホ表示時はさらにコンパクトにして写真を広く見せる */
+@media (max-width: 860px) {
+  .slide-overlay-caption {
+    bottom: 12px;
+    left: 12px;
+    right: 54px;
+    padding: 10px 14px;
+  }
+  .slide-overlay-caption h2 {
+    font-size: 0.98rem;
+    margin-bottom: 2px;
+  }
+  .slide-overlay-caption p {
+    font-size: 0.75rem;
+  }
+}
 
     /* タップしやすい大きさ（44px領域）を確保したドットナビ */
     .slide-dots {
