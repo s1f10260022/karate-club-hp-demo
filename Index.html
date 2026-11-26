@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 仮公開中の検索エンジン避け設定（正式公開時に削除してください） -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>東洋大学空手道部 | TOYO UNIV. KARATE CLUB</title>
+  <!-- Google Fonts（力強い明朝体とモダンなゴシック体・英語フォント） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       基本設定（モノトーン・タイポグラフィ）
+    ========================================= */
+    :root {
+      --bg-main: #ffffff;
+      --bg-sub: #f4f4f4;
+      --ink-black: #111111;
+      --ink-gray: #555555;
+      --border-color: #111111;
+      --accent-navy: #0f2350; /* 鉄紺（東洋大学らしいアクセント） */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--ink-black);
+      background-color: var(--bg-main);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .en-font {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .serif-font {
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================
+       ヘッダー（固定ナビゲーション）
+    ========================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 2px solid var(--ink-black);
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      padding: 0 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+    }
+
+    .logo-stamp {
+      border: 2px solid var(--ink-black);
+      padding: 2px 8px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      background: var(--ink-black);
+      color: #fff;
+    }
+
+    .logo-text {
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .nav-cta {
+      background: var(--ink-black);
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 700;
+      border: 2px solid var(--ink-black);
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: #fff;
+      color: var(--ink-black);
+      text-decoration: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* =========================================
+       ファーストビュー（メインビジュアル）
+    ========================================= */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      border-bottom: 2px solid var(--ink-black);
+      background-color: var(--bg-main);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1.5px solid var(--ink-black);
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      background: var(--ink-black);
+      color: #fff;
+      padding: 0 12px;
+      margin: 4px 0;
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #222;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-photo-box {
+      position: relative;
+      border: 2px solid var(--ink-black);
+      background: #111;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    /* 写真未設定時のモノクロダミービジュアル */
+    .hero-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(115%);
+      transition: transform 0.6s ease;
+    }
+
+    .hero-photo-box:hover img {
+      transform: scale(1.03);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: var(--ink-black);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-photo-box {
+        aspect-ratio: 16 / 10;
+      }
+    }
+
+    /* =========================================
+       共通セクション見出し
+    ========================================= */
+    section {
+      padding: 96px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .sec-header {
+      margin-bottom: 56px;
+    }
+
+    .sec-en {
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink-gray);
+    }
+
+    .sec-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    /* =========================================
+       MESSAGE（思想・メッセージ）
+    ========================================= */
+    .message-sec {
+      background: var(--ink-black);
+      color: #fff;
+    }
+
+    .message-sec .sec-en {
+      color: #aaa;
+    }
+
+    .message-body {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .message-catch {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 900;
+      line-height: 1.5;
+      border-left: 4px solid #fff;
+      padding-left: 20px;
+    }
+
+    .message-text p {
+      margin-bottom: 20px;
+      color: #e5e5e5;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .message-body {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* =========================================
+       ACTIVITY（活動・競技紹介）
+    ========================================= */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      border: 2px solid var(--ink-black);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-num {
+      background: var(--ink-black);
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-body {
+      padding: 24px;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    @media (max-width: 860px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================
+       NEWS / TOPICS（お知らせ・新歓情報）
+    ========================================= */
+    .news-list {
+      border-top: 2px solid var(--ink-black);
+    }
+
+    .news-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 12px;
+      border-bottom: 1px solid var(--ink-black);
+      transition: background 0.2s;
+    }
+
+    .news-item:hover {
+      background: var(--bg-sub);
+    }
+
+    .news-date {
+      font-weight: 700;
+      font-size: 0.9rem;
+      min-width: 100px;
+    }
+
+    .news-badge {
+      border: 1.5px solid var(--ink-black);
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      min-width: 88px;
+      text-align: center;
+    }
+
+    .news-badge.is-black {
+      background: var(--ink-black);
+      color: #fff;
+    }
+
+    .news-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .news-item {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .news-title {
+        width: 100%;
+      }
+    }
+
+    /* =========================================
+       Q&A（よくある質問・アコーディオン）
+    ========================================= */
+    .qa-sec {
+      background: var(--bg-sub);
+    }
+
+    .qa-item {
+      background: #fff;
+      border: 2px solid var(--ink-black);
+      margin-bottom: 16px;
+    }
+
+    .qa-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 22px 24px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .qa-question::before {
+      content: "Q.";
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      margin-right: 10px;
+    }
+
+    .qa-icon {
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+    }
+
+    .qa-item.is-open .qa-icon {
+      transform: rotate(45deg);
+    }
+
+    .qa-answer {
+      display: none;
+      padding: 0 24px 24px 24px;
+      border-top: 1px dashed #ccc;
+      padding-top: 18px;
+      font-size: 0.95rem;
+      color: #222;
+    }
+
+    .qa-item.is-open .qa-answer {
+      display: block;
+    }
+
+    /* =========================================
+       INFO / ACCESS（練習日程・道場案内）
+    ========================================= */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 2px solid var(--ink-black);
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 20px 16px;
+      border-bottom: 1px solid var(--ink-black);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table th {
+      width: 28%;
+      font-weight: 900;
+      background: var(--bg-sub);
+    }
+
+    @media (max-width: 640px) {
+      .info-table th,
+      .info-table td {
+        display: block;
+        width: 100%;
+      }
+      .info-table th {
+        padding-bottom: 8px;
+        border-bottom: none;
+      }
+      .info-table td {
+        padding-top: 8px;
+      }
+    }
+
+    /* =========================================
+       CTA / FOOTER（見学応募・フッター）
+    ========================================= */
+    .cta-box {
+      background: var(--ink-black);
+      color: #fff;
+      padding: 64px 32px;
+      text-align: center;
+      border: 2px solid var(--ink-black);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      color: #ccc;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--ink-black);
+      padding: 16px 36px;
+      font-weight: 900;
+      border: 2px solid #fff;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover {
+      background: transparent;
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      padding: 16px 36px;
+      font-weight: 900;
+      border: 2px solid #fff;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: var(--ink-black);
+    }
+
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--ink-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-stamp en-font">TOYO KARATE</span>
+        <span class="logo-text">東洋大学空手道部</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#message">理念・想い</a>
+        <a href="#activity">活動内容</a>
+        <a href="#news">お知らせ</a>
+        <a href="#qa">よくある質問</a>
+        <a href="#info">稽古日程</a>
+        <a href="#entry" class="nav-cta">見学・体験応募</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ファーストビュー -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-tag">2027年度 新入部員・マネージャー募集中</span>
+          <h1 class="hero-title serif-font">
+            汗かいて、<br>
+            <span>限界を超える。</span>
+          </h1>
+          <p class="hero-lead">
+            形（かた）の美しさと、組手（くみて）の一瞬の攻防。<br>
+            東洋大学白山キャンパスを拠点に、経験者も未経験者も関係なく、本気で自分と向き合う仲間がここにいます。
+          </p>
+          <a href="#entry" class="nav-cta" style="display:inline-block; padding: 14px 32px;">まずは道場見学へ →</a>
+        </div>
+        <div class="hero-photo-box">
+          <!-- ※実際の写真に差し替える場合は src="photo1.jpg" のように変更してください -->
+          <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80" alt="空手道部の稽古風景">
+          <span class="photo-caption en-font">HAKUSAN DOJO / PRACTICE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section id="message" class="message-sec">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">01 / MESSAGE</span>
+        <h2 class="sec-title">私たちが目指すもの</h2>
+      </div>
+      <div class="message-body">
+        <div class="message-catch serif-font">
+          強さとは、<br>
+          昨日までの自分に<br>
+          勝ち続けること。
+        </div>
+        <div class="message-text">
+          <p>
+            効率や手軽さが求められる時代だからこそ、私たちは道場で汗を流し、基本の一つひとつを突き詰める時間を大切にしています。
+          </p>
+          <p>
+            空手は個人競技に見えて、実は「チームで強くなる武道」です。声を掛け合い、課題を指摘し合い、仲間と切磋琢磨することでしか辿り着けない境地があります。
+          </p>
+          <p>
+            全国大会を目指す経験者も、大学から新しいことに挑戦したい初心者も、それぞれの目標に合わせて全力でサポートします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITY -->
+  <section id="activity">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">02 / ACTIVITY</span>
+        <h2 class="sec-title">3つの活動柱</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-num en-font">
+            <span>DIVISION 01</span>
+            <span>KUMITE</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">組手（くみて）</h3>
+            <p class="card-desc">
+              相手と対峙し、一瞬の隙を突いて技を繰り出す対人競技。スピード、駆け引き、そして気迫がぶつかり合います。
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num en-font">
+            <span>DIVISION 02</span>
+            <span>KATA</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">形（かた）</h3>
+            <p class="card-desc">
+              仮想の敵に対する攻防を連続した技として表現する競技。力強さ、キレ、緩急の美しさを極限まで追求します。
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num en-font">
+            <span>DIVISION 03</span>
+            <span>TEAM & SUPPORT</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">基礎体力・チーム運営</h3>
+            <p class="card-desc">
+              初心者向けの段階的な指導プログラムや、マネージャーによるデータ分析・SNS広報など、全員が主役になれる環境です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">03 / NEWS & TOPICS</span>
+        <h2 class="sec-title">最新のお知らせ</h2>
+      </div>
+      <div class="news-list">
+        <a href="#entry" class="news-item">
+          <span class="news-date en-font">2026.11.26</span>
+          <span class="news-badge is-black">新歓情報</span>
+          <span class="news-title">2027年度新入生向けの道場見学・体験稽古の受付を開始しました！</span>
+        </a>
+        <a href="#info" class="news-item">
+          <span class="news-date en-font">2026.11.10</span>
+          <span class="news-badge">大会結果</span>
+          <span class="news-title">関東大学空手道選手権大会に出場しました。</span>
+        </a>
+        <a href="#qa" class="news-item">
+          <span class="news-date en-font">2026.10.25</span>
+          <span class="news-badge">お知らせ</span>
+          <span class="news-title">白山キャンパス道場の稽古スケジュールを更新しました。</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q&A -->
+  <section id="qa" class="qa-sec">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">04 / Q & A</span>
+        <h2 class="sec-title">新入生からの質問に、本音でお答えします</h2>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question" type="button">
+          <span>空手未経験・初心者でも入部できますか？</span>
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          大歓迎です！現在在籍している部員の中にも、大学から空手を始めたメンバーがいます。基本の立ち方や突き・蹴りから先輩が丁寧に指導しますので、運動経験が少ない方も安心してください。
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question" type="button">
+          <span>赤羽台キャンパスや他のキャンパスからでも通えますか？</span>
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          はい、通えます！情報連携学部（赤羽台キャンパス）をはじめ、他キャンパスに所属する部員も授業後に白山キャンパスの道場へ移動して活動しています。授業時間割に合わせた参加調整も可能です。
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <button class="qa-question" type="button">
+          <span>アルバイトや学業との両立は可能ですか？</span>
+          <span class="qa-icon">+</span>
+        </button>
+        <div class="qa-answer">
+          可能です。テスト期間前のオフ期間や、アルバイト・ゼミ活動との両立ができるよう練習時間を設定しています。多くの部員が学業とバイトを両立しながら充実した大学生活を送っています。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section id="info">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">05 / OUTLINE</span>
+        <h2 class="sec-title">活動概要・道場案内</h2>
+      </div>
+      <table class="info-table">
+        <tr>
+          <th>団体名</th>
+          <td>東洋大学体育会空手道部（仮ホームページ）</td>
+        </tr>
+        <tr>
+          <th>活動場所</th>
+          <td>東洋大学 白山キャンパス 総合スポーツセンター内道場（〒112-8606 東京都文京区白山5-28-20）</td>
+        </tr>
+        <tr>
+          <th>活動日時</th>
+          <td>火・木・金 17:00〜19:30 / 土 10:00〜13:00（※仮スケジュール・変更あり）</td>
+        </tr>
+        <tr>
+          <th>募集対象</th>
+          <td>全学部・全キャンパス対象（選手・マネージャーともに募集中）</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ENTRY / CTA -->
+  <section id="entry" style="border-bottom: none;">
+    <div class="container">
+      <div class="cta-box">
+        <span class="en-font" style="letter-spacing:0.15em; font-size:0.85rem; color:#aaa;">JOIN US</span>
+        <h2>まずは道場の空気を感じに来ませんか？</h2>
+        <p>
+          見学・体験稽古はいつでも受け付けています。運動できる服装があれば参加可能です。公式InstagramのDM、またはメールから気軽にご連絡ください。
+        </p>
+        <div class="cta-buttons">
+          <!-- ※実際のInstagram URLやフォームURLに差し替えてください -->
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn-white">公式InstagramでDMを送る</a>
+          <a href="#info" class="btn-outline">活動場所を確認する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <p class="en-font" style="font-weight:700; color:#111; margin-bottom:8px;">TOYO UNIVERSITY KARATE CLUB</p>
+      <p>&copy; 東洋大学空手道部 All Rights Reserved. ※このサイトは試作版（プレビュー用）です。</p>
+    </div>
+  </footer>
+
+  <!-- Q&Aアコーディオン開閉用のJavaScript -->
+  <script>
+    document.querySelectorAll('.qa-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('is-open');
+      });
+    });
+  </script>
+</body>
+</html>
