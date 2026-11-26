@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 仮公開中の検索エンジン避け設定（正式公開時に削除してください） -->
   <meta name="robots" content="noindex, nofollow">
-  <title>東洋大学空手道部 | TOYO UNIV. KARATE CLUB</title>
-  <!-- Google Fonts（力強い明朝体とモダンなゴシック体・英語フォント） -->
+  <title>東洋大学二部体育会空手道部 | TOYO UNIV. KARATE CLUB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    /* =========================================
-       基本設定（紙テクスチャ風モノトーン）
-    ========================================= */
     :root {
       --bg-paper: #f3f3f1;
       --bg-white: #ffffff;
@@ -37,7 +32,6 @@
       font-family: 'Noto Sans JP', sans-serif;
       color: var(--ink-black);
       background-color: var(--bg-paper);
-      /* 紙や道場の壁のような微細なテクスチャ背景 */
       background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 0);
       background-size: 16px 16px;
       line-height: 1.8;
@@ -74,9 +68,7 @@
       padding: 0 24px;
     }
 
-    /* =========================================
-       最上部ニュースティッカー（横に流れる帯）
-    ========================================= */
+    /* ニュースティッカー */
     .ticker-bar {
       position: fixed;
       top: 0;
@@ -118,16 +110,14 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* =========================================
-       ヘッダー（ナビゲーション）
-    ========================================= */
+    /* ヘッダー */
     header {
       position: fixed;
       top: 32px;
       left: 0;
       width: 100%;
       z-index: 1000;
-      pointer-events: none; /* 背景のクリックを邪魔しない */
+      pointer-events: none;
     }
 
     .header-inner {
@@ -145,8 +135,8 @@
       color: #fff;
       padding: 8px 14px;
       font-weight: 900;
-      line-height: 1.2;
-      font-size: 0.9rem;
+      line-height: 1.25;
+      font-size: 0.85rem;
       border: 2px solid var(--ink-black);
     }
 
@@ -160,8 +150,8 @@
     }
 
     .nav-pill a {
-      padding: 12px 22px;
-      font-size: 0.85rem;
+      padding: 12px 18px;
+      font-size: 0.82rem;
       font-weight: 700;
       border-right: 1px solid #e5e5e5;
       transition: background 0.2s, color 0.2s;
@@ -181,15 +171,13 @@
       color: #fff;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
       .nav-pill {
         display: none;
       }
     }
 
-    /* =========================================
-       ファーストビュー（動画オマージュ：周囲に写真が広がる演出）
-    ========================================= */
+    /* ファーストビュー */
     .hero-stage {
       position: relative;
       width: 100%;
@@ -202,7 +190,6 @@
       border-bottom: 2px solid var(--ink-black);
     }
 
-    /* 中央のコピーブロック */
     .hero-center {
       position: relative;
       z-index: 20;
@@ -236,9 +223,9 @@
       background: var(--ink-black);
       color: #ffffff;
       padding: 6px 20px;
-      font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+      font-size: clamp(0.85rem, 1.6vw, 1.05rem);
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
     }
 
     .hero-caption-note {
@@ -251,14 +238,12 @@
       padding: 2px 12px;
     }
 
-    /* 周囲に散りばめられる写真枠 */
     .floating-photo {
       position: absolute;
       z-index: 10;
       overflow: hidden;
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
       background: #ddd;
-      /* 初期状態は小さく透明（JSで順番に広がる） */
       opacity: 0;
       transform: scale(0.35);
       transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
@@ -280,7 +265,6 @@
       transform: scale(1.06);
     }
 
-    /* 8枚の写真の配置座標（PC画面） */
     .fp-1 { top: 13%; left: 3%; width: 170px; height: 220px; }
     .fp-2 { top: 8%; left: 26%; width: 220px; height: 145px; }
     .fp-3 { top: 9%; right: 24%; width: 185px; height: 140px; }
@@ -290,7 +274,6 @@
     .fp-7 { bottom: 5%; right: 26%; width: 205px; height: 150px; }
     .fp-8 { bottom: 9%; right: 3%; width: 230px; height: 165px; }
 
-    /* スマホ画面での写真配置調整（文字に被らないよう四隅へ） */
     @media (max-width: 768px) {
       .fp-1 { top: 12%; left: 3%; width: 115px; height: 140px; }
       .fp-2 { top: 10%; right: 4%; left: auto; width: 130px; height: 95px; }
@@ -299,9 +282,7 @@
       .fp-8 { bottom: 12%; right: 3%; width: 120px; height: 145px; }
     }
 
-    /* =========================================
-       共通セクション見出し
-    ========================================= */
+    /* 共通セクション */
     section.content-sec {
       padding: 96px 0;
       background: #ffffff;
@@ -330,9 +311,7 @@
       line-height: 1.35;
     }
 
-    /* =========================================
-       MESSAGE（理念・紹介文プレースホルダー）
-    ========================================= */
+    /* MESSAGE */
     .message-sec {
       background: var(--ink-black) !important;
       color: #ffffff;
@@ -370,9 +349,7 @@
       }
     }
 
-    /* =========================================
-       ACTIVITY（3つの柱・プレースホルダー）
-    ========================================= */
+    /* ACTIVITY & INSTRUCTORS（共通カードグリッド） */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -382,6 +359,8 @@
     .card {
       border: 2px solid var(--ink-black);
       background: #ffffff;
+      display: flex;
+      flex-direction: column;
     }
 
     .card-top {
@@ -394,13 +373,50 @@
       justify-content: space-between;
     }
 
+    .card-photo-slot {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #e5e5e3;
+      border-bottom: 2px solid var(--ink-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #666;
+      overflow: hidden;
+    }
+
+    .card-photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .card-inner {
       padding: 24px;
+      flex-grow: 1;
+    }
+
+    .card-role {
+      display: inline-block;
+      border: 1.5px solid var(--ink-black);
+      padding: 1px 10px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      margin-bottom: 10px;
     }
 
     .card-title {
       font-size: 1.25rem;
       font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .card-sub-meta {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink-gray);
       margin-bottom: 12px;
     }
 
@@ -415,9 +431,7 @@
       }
     }
 
-    /* =========================================
-       NEWS（お知らせ一覧）
-    ========================================= */
+    /* NEWS */
     .news-list {
       border-top: 2px solid var(--ink-black);
       background: #ffffff;
@@ -471,9 +485,7 @@
       }
     }
 
-    /* =========================================
-       Q&A（よくある質問）
-    ========================================= */
+    /* Q&A */
     .qa-box {
       background: #ffffff;
       border: 2px solid var(--ink-black);
@@ -525,9 +537,7 @@
       display: block;
     }
 
-    /* =========================================
-       INFO（活動概要テーブル）
-    ========================================= */
+    /* INFO */
     .info-table {
       width: 100%;
       border-collapse: collapse;
@@ -563,9 +573,7 @@
       }
     }
 
-    /* =========================================
-       CTA / FOOTER
-    ========================================= */
+    /* CTA / FOOTER */
     .cta-panel {
       background: var(--ink-black);
       color: #ffffff;
@@ -634,25 +642,24 @@
 </head>
 <body>
 
-  <!-- 最上部の流れるニュースティッカー -->
+  <!-- ニュースティッカー -->
   <div class="ticker-bar">
     <div class="ticker-track">
       <div class="ticker-item">
         <span class="ticker-tag">新歓</span>
-        <span>ここに流れるお知らせ文言を入れます（例：2027年度新入部員・マネージャーの道場見学を受け付けています）</span>
+        <span>ここに流れるお知らせ文言を入れます（例：見学・体験をご希望の方は白山キャンパス4号館B1F多目的ルームまで）</span>
       </div>
       <div class="ticker-item">
-        <span class="ticker-tag">お知らせ</span>
-        <span>ここに2つ目の流れるお知らせ文言を入れます（例：白山キャンパス総合スポーツセンター道場にて活動中）</span>
+        <span class="ticker-tag">OB・OG</span>
+        <span>ここにOBOG会（洋空会）向けのお知らせ文言を入れます</span>
       </div>
-      <!-- ループ用の複製 -->
       <div class="ticker-item">
         <span class="ticker-tag">新歓</span>
-        <span>ここに流れるお知らせ文言を入れます（例：2027年度新入部員・マネージャーの道場見学を受け付けています）</span>
+        <span>ここに流れるお知らせ文言を入れます（例：見学・体験をご希望の方は白山キャンパス4号館B1F多目的ルームまで）</span>
       </div>
       <div class="ticker-item">
-        <span class="ticker-tag">お知らせ</span>
-        <span>ここに2つ目の流れるお知らせ文言を入れます（例：白山キャンパス総合スポーツセンター道場にて活動中）</span>
+        <span class="ticker-tag">OB・OG</span>
+        <span>ここにOBOG会（洋空会）向けのお知らせ文言を入れます</span>
       </div>
     </div>
   </div>
@@ -661,21 +668,21 @@
   <header>
     <div class="header-inner">
       <a href="#" class="logo-box">
-        東洋大学<br>空手道部
+        東洋大学二部<br>体育会空手道部
       </a>
       <nav class="nav-pill">
-        <a href="#message">部活を知る</a>
+        <a href="#message">部活紹介</a>
         <a href="#activity">活動内容</a>
+        <a href="#instructors">指導員紹介</a>
         <a href="#news">お知らせ</a>
         <a href="#qa">よくある質問</a>
-        <a href="#entry" class="nav-entry">見学・入部案内</a>
+        <a href="#entry" class="nav-entry">見学・お問い合わせ</a>
       </nav>
     </div>
   </header>
 
-  <!-- ファーストビュー（動画オマージュ：周囲に写真が広がるエリア） -->
+  <!-- ファーストビュー -->
   <div class="hero-stage">
-    <!-- 周囲に時間差で広がる8枚の写真枠 -->
     <div class="floating-photo fp-1"><img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=600&q=80" alt="活動写真1"></div>
     <div class="floating-photo fp-2"><img src="https://images.unsplash.com/photo-1514050566906-8d077bae7046?auto=format&fit=crop&w=600&q=80" alt="活動写真2"></div>
     <div class="floating-photo fp-3"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=80" alt="活動写真3"></div>
@@ -685,7 +692,6 @@
     <div class="floating-photo fp-7"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="活動写真7"></div>
     <div class="floating-photo fp-8"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="活動写真8"></div>
 
-    <!-- 中央のメインコピー（言葉を入れるための仮テキスト） -->
     <div class="hero-center">
       <div>
         <div class="tape-box">
@@ -710,7 +716,7 @@
   <section id="message" class="content-sec message-sec">
     <div class="container">
       <div class="sec-header">
-        <span class="sec-en en-font">01 / MESSAGE</span>
+        <span class="sec-en en-font">01 / ABOUT US</span>
         <h2 class="sec-title">ここにセクションの見出しが入ります</h2>
       </div>
       <div class="message-grid">
@@ -721,10 +727,10 @@
         </div>
         <div class="message-body-box">
           <p>
-            ここに1段落目の紹介文が入ります。部活動の雰囲気や、どんな思いで日々の稽古に取り組んでいるかなどを記載するスペースです。
+            ここに1段落目の紹介文が入ります。東洋大学二部体育会空手道部の特徴や雰囲気について記載するスペースです。
           </p>
           <p>
-            ここに2段落目の紹介文が入ります。経験者・未経験者を問わず歓迎する姿勢や、大学生活の中で得られる経験について記載します。
+            ここに2段落目の紹介文が入ります。流派（糸東流）や学生主体での活動スタイルなどについて記載します。
           </p>
           <p>
             ここに3段落目の結びの文が入ります。新入生や見学希望者に向けたメッセージを入れます。
@@ -739,7 +745,7 @@
     <div class="container">
       <div class="sec-header">
         <span class="sec-en en-font">02 / ACTIVITY</span>
-        <h2 class="sec-title">活動内容・3つの特徴（見出しが入ります）</h2>
+        <h2 class="sec-title">活動内容・特徴（見出しが入ります）</h2>
       </div>
       <div class="cards-grid">
         <div class="card">
@@ -750,7 +756,7 @@
           <div class="card-inner">
             <h3 class="card-title">項目タイトル1（例：組手）</h3>
             <p class="card-text">
-              ここに1つ目の活動内容や特徴についての説明文が入ります。3〜4行程度で簡潔にまとめるとバランスが良くなります。
+              ここに1つ目の活動内容や特徴についての説明文が入ります。
             </p>
           </div>
         </div>
@@ -760,21 +766,21 @@
             <span>KATA</span>
           </div>
           <div class="card-inner">
-            <h3 class="card-title">項目タイトル2（例：形）</h3>
+            <h3 class="card-title">項目タイトル2（例：形・糸東流）</h3>
             <p class="card-text">
-              ここに2つ目の活動内容や特徴についての説明文が入ります。練習の進め方や競技の魅力などを記載します。
+              ここに2つ目の活動内容や特徴についての説明文が入ります。
             </p>
           </div>
         </div>
         <div class="card">
           <div class="card-top en-font">
             <span>POINT 03</span>
-            <span>SUPPORT</span>
+            <span>STYLE</span>
           </div>
           <div class="card-inner">
-            <h3 class="card-title">項目タイトル3（例：初心者・マネージャー）</h3>
+            <h3 class="card-title">項目タイトル3（例：学生主体の運営）</h3>
             <p class="card-text">
-              ここに3つ目の活動内容や特徴についての説明文が入ります。未経験者向けのサポートやチーム体制などを記載します。
+              ここに3つ目の活動内容や特徴についての説明文が入ります。
             </p>
           </div>
         </div>
@@ -782,113 +788,189 @@
     </div>
   </section>
 
-  <!-- 03 / NEWS -->
-  <section id="news" class="content-sec">
+  <!-- 03 / INSTRUCTORS（指導員紹介） -->
+  <section id="instructors" class="content-sec">
     <div class="container">
       <div class="sec-header">
-        <span class="sec-en en-font">03 / NEWS & TOPICS</span>
-        <h2 class="sec-title">お知らせ・新着情報</h2>
+        <span class="sec-en en-font">03 / INSTRUCTORS</span>
+        <h2 class="sec-title">指導員紹介</h2>
+      </div>
+      <div class="cards-grid">
+        <!-- 指導員枠1 -->
+        <div class="card">
+          <div class="card-top en-font">
+            <span>INSTRUCTOR 01</span>
+            <span>DIRECTOR</span>
+          </div>
+          <div class="card-photo-slot">
+            <!-- 写真を入れる場合は <img src="instructor1.jpg" alt="指導員1"> に差し替え -->
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <div class="card-inner">
+            <span class="card-role">役職名（例：師範 / 監督）</span>
+            <h3 class="card-title">指導員 氏名1</h3>
+            <p class="card-sub-meta">流派・段位・経歴などが入ります</p>
+            <p class="card-text">
+              ここに指導員からのメッセージやプロフィール文が入ります。
+            </p>
+          </div>
+        </div>
+
+        <!-- 指導員枠2 -->
+        <div class="card">
+          <div class="card-top en-font">
+            <span>INSTRUCTOR 02</span>
+            <span>HEAD COACH</span>
+          </div>
+          <div class="card-photo-slot">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <div class="card-inner">
+            <span class="card-role">役職名（例：コーチ）</span>
+            <h3 class="card-title">指導員 氏名2</h3>
+            <p class="card-sub-meta">流派・段位・経歴などが入ります</p>
+            <p class="card-text">
+              ここに指導員からのメッセージやプロフィール文が入ります。
+            </p>
+          </div>
+        </div>
+
+        <!-- 指導員枠3 -->
+        <div class="card">
+          <div class="card-top en-font">
+            <span>INSTRUCTOR 03</span>
+            <span>COACH</span>
+          </div>
+          <div class="card-photo-slot">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <div class="card-inner">
+            <span class="card-role">役職名（例：コーチ / OB指導員）</span>
+            <h3 class="card-title">指導員 氏名3</h3>
+            <p class="card-sub-meta">流派・段位・経歴などが入ります</p>
+            <p class="card-text">
+              ここに指導員からのメッセージやプロフィール文が入ります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / NEWS -->
+  <section id="news" class="content-sec is-paper">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">04 / NEWS & TOPICS</span>
+        <h2 class="sec-title">お知らせ・大会結果</h2>
       </div>
       <div class="news-list">
         <a href="#entry" class="news-row">
           <span class="news-date en-font">2026.11.26</span>
-          <span class="news-label is-solid">カテゴリ</span>
-          <span class="news-subject">ここにお知らせのタイトルが入ります（例：新入生向け体験稽古のお知らせ）</span>
+          <span class="news-label is-solid">新歓情報</span>
+          <span class="news-subject">ここにお知らせのタイトルが入ります</span>
         </a>
         <a href="#info" class="news-row">
           <span class="news-date en-font">2026.11.10</span>
-          <span class="news-label">カテゴリ</span>
-          <span class="news-subject">ここにお知らせのタイトルが入ります（例：大会結果の報告）</span>
+          <span class="news-label">大会結果</span>
+          <span class="news-subject">ここに大会結果・活動報告のタイトルが入ります</span>
         </a>
         <a href="#qa" class="news-row">
           <span class="news-date en-font">2026.10.25</span>
-          <span class="news-label">カテゴリ</span>
-          <span class="news-subject">ここにお知らせのタイトルが入ります（例：今月の稽古スケジュール更新）</span>
+          <span class="news-label">洋空会</span>
+          <span class="news-subject">ここにOBOG（洋空会）向けのお知らせが入ります</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 04 / Q&A -->
-  <section id="qa" class="content-sec is-paper">
+  <!-- 05 / Q&A -->
+  <section id="qa" class="content-sec">
     <div class="container">
       <div class="sec-header">
-        <span class="sec-en en-font">04 / Q & A</span>
+        <span class="sec-en en-font">05 / Q & A</span>
         <h2 class="sec-title">よくある質問</h2>
       </div>
 
       <div class="qa-box">
         <button class="qa-btn" type="button">
-          <span class="qa-btn-left">ここに質問文1が入ります（例：初心者でも入部できますか？）</span>
+          <span class="qa-btn-left">ここに質問文1が入ります</span>
           <span class="qa-plus">+</span>
         </button>
         <div class="qa-panel">
-          ここに質問1に対する回答文が入ります。クリックすると開閉する仕組みになっています。
+          ここに質問1に対する回答文が入ります。
         </div>
       </div>
 
       <div class="qa-box">
         <button class="qa-btn" type="button">
-          <span class="qa-btn-left">ここに質問文2が入ります（例：他キャンパスからの参加は可能ですか？）</span>
+          <span class="qa-btn-left">ここに質問文2が入ります</span>
           <span class="qa-plus">+</span>
         </button>
         <div class="qa-panel">
-          ここに質問2に対する回答文が入ります。赤羽台キャンパスなど他キャンパスからの通い方や授業との調整について記載できます。
+          ここに質問2に対する回答文が入ります。
         </div>
       </div>
 
       <div class="qa-box">
         <button class="qa-btn" type="button">
-          <span class="qa-btn-left">ここに質問文3が入ります（例：アルバイトや学業と両立できますか？）</span>
+          <span class="qa-btn-left">ここに質問文3が入ります</span>
           <span class="qa-plus">+</span>
         </button>
         <div class="qa-panel">
-          ここに質問3に対する回答文が入ります。テスト期間やバイトとの両立について記載できます。
+          ここに質問3に対する回答文が入ります。
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 05 / OUTLINE -->
-  <section id="info" class="content-sec">
+  <!-- 06 / OUTLINE -->
+  <section id="info" class="content-sec is-paper">
     <div class="container">
       <div class="sec-header">
-        <span class="sec-en en-font">05 / OUTLINE</span>
+        <span class="sec-en en-font">06 / OUTLINE</span>
         <h2 class="sec-title">活動概要</h2>
       </div>
       <table class="info-table">
         <tr>
           <th>団体名</th>
-          <td>東洋大学体育会空手道部</td>
+          <td>東洋大学二部体育会空手道部</td>
+        </tr>
+        <tr>
+          <th>流派・OB会</th>
+          <td>糸東流 / OBOG会「洋空会」</td>
         </tr>
         <tr>
           <th>活動場所</th>
-          <td>東洋大学 白山キャンパス 総合スポーツセンター内道場（〒112-8606 東京都文京区白山5-28-20）</td>
+          <td>東洋大学 白山キャンパス 4号館B1F多目的ルーム（〒112-8606 東京都文京区白山5-28-20）</td>
         </tr>
         <tr>
-          <th>活動日時</th>
-          <td>ここに練習曜日・時間を記載します</td>
+          <th>練習日・行事予定</th>
+          <td>ここに練習曜日・時間・年間行事予定を記載します</td>
         </tr>
         <tr>
-          <th>募集対象</th>
-          <td>ここに募集対象（全学部・選手・マネージャーなど）を記載します</td>
+          <th>公式SNS</th>
+          <td>
+            Instagram：<a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener" style="text-decoration:underline;">@toyo2karatedo</a> ／ 
+            X (Twitter)：<a href="https://twitter.com/toyo2karatedo" target="_blank" rel="noopener" style="text-decoration:underline;">@toyo2karatedo</a>
+          </td>
         </tr>
       </table>
     </div>
   </section>
 
   <!-- ENTRY / CTA -->
-  <section id="entry" class="content-sec is-paper" style="border-bottom: none;">
+  <section id="entry" class="content-sec" style="border-bottom: none;">
     <div class="container">
       <div class="cta-panel">
         <span class="en-font" style="letter-spacing:0.15em; font-size:0.85rem; color:#aaa;">CONTACT / ENTRY</span>
         <h2>ここに見学・体験への呼びかけ文が入ります</h2>
         <p>
-          ここに応募方法やSNSからの連絡方法についての案内文が入ります。
+          ここに応募方法や4号館B1F多目的ルームでの見学案内、SNSからの連絡方法についての案内文が入ります。
         </p>
         <div class="cta-btn-group">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn-primary">公式Instagramリンク</a>
-          <a href="#info" class="btn-secondary">活動場所を見る</a>
+          <a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener" class="btn-primary">公式Instagram (@toyo2karatedo)</a>
+          <a href="https://twitter.com/toyo2karatedo" target="_blank" rel="noopener" class="btn-secondary">公式X (@toyo2karatedo)</a>
         </div>
       </div>
     </div>
@@ -898,22 +980,16 @@
   <footer>
     <div class="container">
       <p class="en-font" style="font-weight:700; color:#111; margin-bottom:6px;">TOYO UNIVERSITY KARATE CLUB</p>
-      <p>&copy; 東洋大学空手道部 All Rights Reserved.</p>
+      <p>&copy; 東洋大学二部体育会空手道部 All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- アニメーション制御用JavaScript -->
   <script>
-    // 1. 周囲の写真が順番に広がり、ループして入れ替わるアニメーション
     const photos = Array.from(document.querySelectorAll('.floating-photo'));
-    // 表示する順番（対角線上にテンポよく広がる順序）
     const order = [0, 7, 2, 5, 1, 6, 3, 4];
 
     function runPhotoAnimation() {
-      // 一旦すべてリセットして縮小状態に戻す
       photos.forEach(p => p.classList.remove('is-visible'));
-
-      // 0.25秒間隔で順番にパッと広げる
       order.forEach((photoIndex, step) => {
         setTimeout(() => {
           if (photos[photoIndex]) {
@@ -923,14 +999,11 @@
       });
     }
 
-    // ページ読み込み時に初回実行
     window.addEventListener('DOMContentLoaded', () => {
       runPhotoAnimation();
-      // 6.5秒ごとに一度閉じて再び広がるループ演出
       setInterval(runPhotoAnimation, 6500);
     });
 
-    // 2. Q&Aアコーディオン開閉
     document.querySelectorAll('.qa-btn').forEach(button => {
       button.addEventListener('click', () => {
         button.parentElement.classList.toggle('is-open');
