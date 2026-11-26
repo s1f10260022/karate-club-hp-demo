@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>東洋大学空手道部（案3） | TOYO UNIV. KARATE CLUB</title>
+  <title>東洋大学二部体育会空手道部（案3） | TOYO UNIV. KARATE CLUB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@700&family=Syne:wght@800&display=swap" rel="stylesheet">
   <style>
-    /* =========================================
-       基本設定
-    ========================================= */
     :root {
-      --theme-color: #0f2350; /* 初期テーマカラー（鉄紺） */
+      --theme-color: #0f2350;
       --ink-dark: #18181b;
       --bg-light: #ffffff;
       --bg-gray: #f4f4f5;
@@ -61,9 +58,7 @@
       text-transform: uppercase;
     }
 
-    /* =========================================
-       ローディング画面（0 → 100 カウントアップ）
-    ========================================= */
+    /* ローディング画面 */
     .loader-screen {
       position: fixed;
       inset: 0;
@@ -103,9 +98,7 @@
       text-align: right;
     }
 
-    /* =========================================
-       左端の縦書きサイドバー（動画オマージュ）
-    ========================================= */
+    /* 左サイドレール */
     .side-rail {
       position: fixed;
       top: 0;
@@ -144,9 +137,7 @@
       }
     }
 
-    /* =========================================
-       ファーストビュー：左右2分割スライドショー（動画オマージュ）
-    ========================================= */
+    /* 左右2分割メインビジュアル */
     .split-hero {
       position: relative;
       margin-left: 44px;
@@ -156,7 +147,6 @@
       overflow: hidden;
     }
 
-    /* 左側：カラーパネル＋ロゴ＋縦メニュー */
     .hero-left-panel {
       background-color: var(--theme-color);
       color: #ffffff;
@@ -169,11 +159,6 @@
       z-index: 10;
     }
 
-    .brand-header {
-      position: relative;
-    }
-
-    /* 左上の白抜き巨大ロゴ（背景を突き抜けるデザイン） */
     .mega-logo {
       font-size: clamp(2.6rem, 5.2vw, 4.8rem);
       font-weight: 800;
@@ -191,18 +176,17 @@
       opacity: 0.92;
     }
 
-    /* 縦並びナビゲーション（Works / Goods / About / Contact 風） */
     .hero-menu-list {
       list-style: none;
-      margin: 36px 0;
+      margin: 28px 0;
     }
 
     .hero-menu-list li {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .hero-menu-list a {
-      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      font-size: clamp(1.4rem, 2.3vw, 1.95rem);
       font-weight: 700;
       display: inline-flex;
       align-items: baseline;
@@ -221,7 +205,6 @@
       opacity: 0.8;
     }
 
-    /* 左下のTopicsボックス */
     .hero-topics {
       border-top: 1px solid rgba(255, 255, 255, 0.35);
       padding-top: 16px;
@@ -241,7 +224,6 @@
       text-underline-offset: 4px;
     }
 
-    /* 右側：下から上へスライドして切り替わるビジュアルエリア */
     .hero-right-visual {
       position: relative;
       width: 100%;
@@ -277,7 +259,6 @@
       object-fit: cover;
     }
 
-    /* スライド上の仮キャッチコピー枠 */
     .slide-overlay-caption {
       position: absolute;
       bottom: 36px;
@@ -300,7 +281,6 @@
       color: #52525b;
     }
 
-    /* 右端のスライド切り替えドット */
     .slide-dots {
       position: absolute;
       right: 24px;
@@ -347,9 +327,7 @@
       }
     }
 
-    /* =========================================
-       メインコンテンツ共通（左レール分の余白を確保）
-    ========================================= */
+    /* メインコンテンツ共通 */
     main {
       margin-left: 44px;
     }
@@ -388,9 +366,7 @@
       margin-top: 8px;
     }
 
-    /* =========================================
-       GALLERY / WORKS（動画後半の横並びギャラリー再現）
-    ========================================= */
+    /* GALLERY */
     .filter-tabs {
       display: flex;
       gap: 16px;
@@ -446,7 +422,7 @@
 
     .gallery-thumb {
       width: 100%;
-      height: 360px;
+      height: 340px;
       overflow: hidden;
       background: #f4f4f5;
     }
@@ -479,9 +455,84 @@
       font-weight: 700;
     }
 
-    /* =========================================
-       ABOUT（部活紹介プレースホルダー）
-    ========================================= */
+    /* INSTRUCTORS（指導員紹介セクション） */
+    .instructors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .instructor-card {
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .instructor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .instructor-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #f4f4f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #71717a;
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .instructor-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .instructor-body {
+      padding: 24px;
+    }
+
+    .instructor-role {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--theme-color);
+      padding: 2px 10px;
+      margin-bottom: 10px;
+      transition: background-color 0.7s ease;
+    }
+
+    .instructor-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .instructor-meta {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #71717a;
+      margin-bottom: 12px;
+    }
+
+    .instructor-desc {
+      font-size: 0.92rem;
+      color: #3f3f46;
+    }
+
+    @media (max-width: 860px) {
+      .instructors-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ABOUT */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.3fr;
@@ -494,6 +545,7 @@
       font-weight: 900;
       line-height: 1.5;
       color: var(--theme-color);
+      transition: color 0.7s ease;
     }
 
     .about-text p {
@@ -514,7 +566,7 @@
     }
 
     .outline-row dt {
-      width: 130px;
+      width: 140px;
       font-weight: 700;
       color: #71717a;
       flex-shrink: 0;
@@ -527,9 +579,7 @@
       }
     }
 
-    /* =========================================
-       CONTACT / ENTRY
-    ========================================= */
+    /* CONTACT */
     .contact-banner {
       background: var(--theme-color);
       color: #ffffff;
@@ -554,10 +604,16 @@
       font-size: 0.95rem;
     }
 
+    .contact-btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .btn-light {
       background: #ffffff;
       color: var(--ink-dark);
-      padding: 16px 36px;
+      padding: 15px 30px;
       font-weight: 900;
       border-radius: 2px;
       display: inline-block;
@@ -589,35 +645,35 @@
 </head>
 <body>
 
-  <!-- 0 → 100 ローディングスクリーン -->
+  <!-- ローディングスクリーン -->
   <div class="loader-screen" id="loaderScreen">
     <div class="loader-brand display-font">TOYO KARATE</div>
     <div style="display:flex; align-items:baseline;">
-      <span class="loader-sub">Official Club Portfolio</span>
+      <span class="loader-sub">Toyo Univ. Karate Club</span>
       <span class="loader-count display-font" id="loaderCount">0</span>
     </div>
   </div>
 
-  <!-- 左端の固定縦書きレール -->
+  <!-- 左サイドレール -->
   <aside class="side-rail">
     <span class="side-rail-top en-font">TOYO UNIV. KARATE CLUB</span>
     <a href="#top" class="side-rail-menu en-font">TOP</a>
   </aside>
 
-  <!-- ファーストビュー：左右2分割＋カラー＆写真スライド -->
+  <!-- ファーストビュー -->
   <section class="split-hero" id="top">
-    <!-- 左側カラーパネル -->
     <div class="hero-left-panel" id="heroLeftPanel">
       <div class="brand-header">
         <h1 class="mega-logo display-font">TOYO KARATE</h1>
-        <p class="brand-tagline">東洋大学空手道部 | 白山キャンパス</p>
+        <p class="brand-tagline">東洋大学二部体育会空手道部 | 白山キャンパス</p>
       </div>
 
       <ul class="hero-menu-list display-font">
         <li><a href="#gallery">Activity <span class="jp-sub">活動記録</span></a></li>
+        <li><a href="#instructors">Instructors <span class="jp-sub">指導員紹介</span></a></li>
         <li><a href="#about">About <span class="jp-sub">部活紹介</span></a></li>
-        <li><a href="#outline">Schedule <span class="jp-sub">稽古日程</span></a></li>
-        <li><a href="#contact">Contact <span class="jp-sub">見学・入部</span></a></li>
+        <li><a href="#outline">Schedule <span class="jp-sub">練習日・概要</span></a></li>
+        <li><a href="#contact">Contact <span class="jp-sub">見学・連絡先</span></a></li>
       </ul>
 
       <div class="hero-topics">
@@ -626,9 +682,7 @@
       </div>
     </div>
 
-    <!-- 右側スライドショーパネル -->
     <div class="hero-right-visual">
-      <!-- スライド1（テーマカラー：鉄紺 #0f2350） -->
       <div class="slide-frame is-active" data-color="#0f2350">
         <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1200&q=80" alt="スライド1">
         <div class="slide-overlay-caption">
@@ -637,7 +691,6 @@
         </div>
       </div>
 
-      <!-- スライド2（テーマカラー：深紅 #8b1e24） -->
       <div class="slide-frame" data-color="#8b1e24">
         <img src="https://images.unsplash.com/photo-1514050566906-8d077bae7046?auto=format&fit=crop&w=1200&q=80" alt="スライド2">
         <div class="slide-overlay-caption">
@@ -646,7 +699,6 @@
         </div>
       </div>
 
-      <!-- スライド3（テーマカラー：山吹・ゴールド系 #b5892e） -->
       <div class="slide-frame" data-color="#b5892e">
         <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1200&q=80" alt="スライド3">
         <div class="slide-overlay-caption">
@@ -655,7 +707,6 @@
         </div>
       </div>
 
-      <!-- スライド4（テーマカラー：墨黒 #1c1c1e） -->
       <div class="slide-frame" data-color="#1c1c1e">
         <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80" alt="スライド4">
         <div class="slide-overlay-caption">
@@ -664,7 +715,6 @@
         </div>
       </div>
 
-      <!-- 右端の切り替えドット -->
       <div class="slide-dots" id="slideDots">
         <button class="slide-dot is-active" aria-label="スライド1"></button>
         <button class="slide-dot" aria-label="スライド2"></button>
@@ -676,12 +726,12 @@
 
   <!-- メインコンテンツ -->
   <main>
-    <!-- GALLERY（動画後半の横並びギャラリー） -->
+    <!-- GALLERY -->
     <section class="section-wrap" id="gallery">
       <div class="section-header-row">
         <div>
           <h2 class="section-big-title display-font">Activity</h2>
-          <p class="section-jp-note">活動風景・大会記録（横にスクロールできます）</p>
+          <p class="section-jp-note">活動風景・大会結果（横にスクロールできます）</p>
         </div>
         <div class="filter-tabs" id="filterTabs">
           <button class="filter-tab is-active" data-filter="all">All</button>
@@ -730,14 +780,58 @@
             <h3 class="gallery-title">ここに写真タイトル4が入ります</h3>
           </div>
         </article>
+      </div>
+    </section>
 
-        <article class="gallery-card" data-category="practice">
-          <div class="gallery-thumb">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="ギャラリー5">
+    <!-- INSTRUCTORS（指導員紹介） -->
+    <section class="section-wrap" id="instructors" style="background:#fafafa;">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-big-title display-font">Instructors</h2>
+          <p class="section-jp-note">指導員紹介</p>
+        </div>
+      </div>
+
+      <div class="instructors-grid">
+        <article class="instructor-card">
+          <div class="instructor-photo">
+            <span>指導員写真枠（任意）</span>
           </div>
-          <div class="gallery-meta">
-            <span class="gallery-cat">PRACTICE</span>
-            <h3 class="gallery-title">ここに写真タイトル5が入ります</h3>
+          <div class="instructor-body">
+            <span class="instructor-role">役職名（例：師範 / 監督）</span>
+            <h3 class="instructor-name">指導員 氏名1</h3>
+            <p class="instructor-meta">流派・段位・経歴などが入ります</p>
+            <p class="instructor-desc">
+              ここに指導員からのメッセージやプロフィール文が入ります。
+            </p>
+          </div>
+        </article>
+
+        <article class="instructor-card">
+          <div class="instructor-photo">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <div class="instructor-body">
+            <span class="instructor-role">役職名（例：コーチ）</span>
+            <h3 class="instructor-name">指導員 氏名2</h3>
+            <p class="instructor-meta">流派・段位・経歴などが入ります</p>
+            <p class="instructor-desc">
+              ここに指導員からのメッセージやプロフィール文が入ります。
+            </p>
+          </div>
+        </article>
+
+        <article class="instructor-card">
+          <div class="instructor-photo">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <div class="instructor-body">
+            <span class="instructor-role">役職名（例：コーチ / OB指導員）</span>
+            <h3 class="instructor-name">指導員 氏名3</h3>
+            <p class="instructor-meta">流派・段位・経歴などが入ります</p>
+            <p class="instructor-desc">
+              ここに指導員からのメッセージやプロフィール文が入ります。
+            </p>
           </div>
         </article>
       </div>
@@ -748,36 +842,40 @@
       <div class="section-header-row">
         <div>
           <h2 class="section-big-title display-font">About</h2>
-          <p class="section-jp-note">部活動について・基本情報</p>
+          <p class="section-jp-note">空手道部紹介・活動概要</p>
         </div>
       </div>
 
       <div class="about-grid">
-        <div class="about-catch">
+        <div class="about-catch" id="aboutCatch">
           ここに部活の特徴や<br>
           メッセージを表す<br>
           見出し文が入ります。
         </div>
         <div class="about-text">
           <p>
-            ここに1段落目の紹介文が入ります。東洋大学白山キャンパスを拠点とした日々の活動内容や、部内の雰囲気などを記載するスペースです。
+            ここに1段落目の紹介文が入ります。東洋大学二部体育会空手道部の特徴や雰囲気について記載するスペースです。
           </p>
           <p>
-            ここに2段落目の紹介文が入ります。経験者・未経験者・マネージャー募集など、新入生に伝えたいポイントを入れます。
+            ここに2段落目の紹介文が入ります。流派（糸東流）や学生主体での活動スタイル、OBOG会（洋空会）とのつながりなどを記載します。
           </p>
 
           <dl class="outline-list" id="outline">
             <div class="outline-row">
+              <dt>団体名</dt>
+              <dd>東洋大学二部体育会空手道部</dd>
+            </div>
+            <div class="outline-row">
+              <dt>流派・OB会</dt>
+              <dd>糸東流 / OBOG会「洋空会」</dd>
+            </div>
+            <div class="outline-row">
               <dt>活動場所</dt>
-              <dd>東洋大学 白山キャンパス 総合スポーツセンター内道場</dd>
+              <dd>東洋大学 白山キャンパス 4号館B1F多目的ルーム（東京都文京区白山5-28-20）</dd>
             </div>
             <div class="outline-row">
-              <dt>活動日時</dt>
-              <dd>ここに練習曜日・時間を記載します</dd>
-            </div>
-            <div class="outline-row">
-              <dt>募集対象</dt>
-              <dd>全学部・全キャンパス対象（選手・マネージャー）</dd>
+              <dt>練習日・行事予定</dt>
+              <dd>ここに練習曜日・時間・年間行事予定を記載します</dd>
             </div>
           </dl>
         </div>
@@ -789,21 +887,22 @@
       <div class="contact-banner" id="contactBanner">
         <div>
           <h2>ここに見学・体験への呼びかけ文が入ります</h2>
-          <p>ここに応募方法や公式SNSからの連絡方法についての案内文が入ります。</p>
+          <p>白山キャンパス4号館B1F多目的ルームでの見学や、公式SNSからのご連絡案内が入ります。</p>
         </div>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn-light">公式Instagramへ →</a>
+        <div class="contact-btn-row">
+          <a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener" class="btn-light">Instagram (@toyo2karatedo) →</a>
+          <a href="https://twitter.com/toyo2karatedo" target="_blank" rel="noopener" class="btn-light">X (@toyo2karatedo) →</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
     <span>TOYO UNIVERSITY KARATE CLUB</span>
-    <span>&copy; 東洋大学空手道部 All Rights Reserved.</span>
+    <span>&copy; 東洋大学二部体育会空手道部 All Rights Reserved.</span>
   </footer>
 
-  <!-- アニメーション制御用JavaScript -->
   <script>
-    // 1. 0 → 100 ローディングアニメーション
     window.addEventListener('DOMContentLoaded', () => {
       const loader = document.getElementById('loaderScreen');
       const countEl = document.getElementById('loaderCount');
@@ -824,11 +923,11 @@
       }, 45);
     });
 
-    // 2. 左右連動スライドショー（写真＋背景テーマカラー切り替え）
     const slides = document.querySelectorAll('.slide-frame');
     const dots = document.querySelectorAll('.slide-dot');
     const leftPanel = document.getElementById('heroLeftPanel');
     const contactBanner = document.getElementById('contactBanner');
+    const aboutCatch = document.getElementById('aboutCatch');
     let currentIndex = 0;
     let slideInterval;
 
@@ -845,11 +944,11 @@
         d.classList.toggle('is-active', i === nextIndex);
       });
 
-      // スライドに応じたテーマカラーに切り替え
       const newColor = slides[nextIndex].getAttribute('data-color');
       document.documentElement.style.setProperty('--theme-color', newColor);
       leftPanel.style.backgroundColor = newColor;
       if (contactBanner) contactBanner.style.backgroundColor = newColor;
+      if (aboutCatch) aboutCatch.style.color = newColor;
 
       currentIndex = nextIndex;
     }
@@ -871,7 +970,6 @@
 
     startAutoSlide();
 
-    // 3. ギャラリーのカテゴリ絞り込み
     const filterTabs = document.querySelectorAll('.filter-tab');
     const galleryCards = document.querySelectorAll('.gallery-card');
 
