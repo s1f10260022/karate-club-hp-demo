@@ -1,1 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>東洋大学空手道部（案2） | TOYO UNIV. KARATE CLUB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================
+       基本設定（紙テクスチャ風モノトーン）
+    ========================================= */
+    :root {
+      --bg-paper: #f3f3f1;
+      --bg-white: #ffffff;
+      --ink-black: #111111;
+      --ink-gray: #555555;
+      --border-color: #111111;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--ink-black);
+      background-color: var(--bg-paper);
+      background-image: radial-gradient(rgba(0, 0, 0, 0.065) 1px, transparent 0);
+      background-size: 14px 14px;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .en-font {
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .serif-font {
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================
+       最上部ニュースティッカー
+    ========================================= */
+    .ticker-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 32px;
+      background: #ffffff;
+      border-bottom: 1px solid #d4d4d0;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      font-size: 0.75rem;
+    }
+
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: tickerScroll 28s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding-right: 48px;
+    }
+
+    .ticker-tag {
+      border: 1px solid var(--ink-black);
+      padding: 0 6px;
+      font-weight: 700;
+      font-size: 0.68rem;
+      line-height: 1.4;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* =========================================
+       ヘッダー（ナビゲーション）
+    ========================================= */
+    header {
+      position: fixed;
+      top: 32px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo-box {
+      pointer-events: auto;
+      background: var(--ink-black);
+      color: #fff;
+      padding: 8px 14px;
+      font-weight: 900;
+      line-height: 1.2;
+      font-size: 0.9rem;
+      border: 2px solid var(--ink-black);
+    }
+
+    .nav-pill {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1.5px solid #cccccc;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-pill a {
+      padding: 12px 22px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-right: 1px solid #e5e5e5;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-pill a:hover {
+      background: #f4f4f4;
+    }
+
+    .nav-pill a.nav-entry {
+      background: #e5e5e3;
+      border-right: none;
+    }
+
+    .nav-pill a.nav-entry:hover {
+      background: var(--ink-black);
+      color: #fff;
+    }
+
+    @media (max-width: 820px) {
+      .nav-pill {
+        display: none;
+      }
+    }
+
+    /* =========================================
+       動画オマージュ：スクロールで中央に画像が集まるエリア
+    ========================================= */
+    .scroll-converge-wrapper {
+      position: relative;
+      /* スクロールしてアニメーションを味わうための十分な高さ */
+      height: 280vh;
+      border-bottom: 2px solid var(--ink-black);
+    }
+
+    .sticky-stage {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 中央に固定される黒塗りラベルコピー */
+    .center-copy-group {
+      position: relative;
+      z-index: 30;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.2s ease-out;
+    }
+
+    .black-bar-title {
+      display: inline-block;
+      background: var(--ink-black);
+      color: #ffffff;
+      font-size: clamp(2rem, 4.8vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.25;
+      padding: 8px 26px;
+      margin: 6px 0;
+      letter-spacing: 0.08em;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    .black-bar-sub {
+      display: inline-block;
+      background: var(--ink-black);
+      color: #ffffff;
+      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      font-weight: 700;
+      padding: 6px 20px;
+      margin-top: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    /* スクロール後半で中央に浮かび上がる第2メッセージ */
+    .converged-message {
+      position: absolute;
+      z-index: 35;
+      text-align: center;
+      max-width: 640px;
+      padding: 28px 32px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 2px solid var(--ink-black);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      pointer-events: none;
+    }
+
+    .converged-message h2 {
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .converged-message p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    /* 四隅から中央へ集まってくる写真たち */
+    .gather-photo {
+      position: absolute;
+      z-index: 15;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+      background: #222;
+      will-change: transform, opacity;
+    }
+
+    .gather-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 初期配置（スクロール0%時点の外周位置） */
+    .gp-1 { top: 12%; left: 4%; width: 175px; height: 225px; }
+    .gp-2 { top: 8%; left: 26%; width: 215px; height: 145px; }
+    .gp-3 { top: 9%; right: 25%; width: 190px; height: 140px; }
+    .gp-4 { top: 13%; right: 4%; width: 170px; height: 225px; }
+    .gp-5 { bottom: 10%; left: 5%; width: 210px; height: 150px; }
+    .gp-6 { bottom: 6%; left: 27%; width: 165px; height: 185px; }
+    .gp-7 { bottom: 6%; right: 27%; width: 205px; height: 145px; }
+    .gp-8 { bottom: 10%; right: 4%; width: 225px; height: 160px; }
+
+    /* スクロール誘導の小さなサイン */
+    .scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 25;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink-black);
+    }
+
+    .scroll-line {
+      width: 1.5px;
+      height: 28px;
+      background: var(--ink-black);
+      animation: scrollPulse 1.6s infinite ease-in-out;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .gp-1 { top: 12%; left: 3%; width: 115px; height: 140px; }
+      .gp-2 { top: 10%; right: 4%; left: auto; width: 130px; height: 95px; }
+      .gp-3, .gp-4, .gp-6, .gp-7 { display: none; }
+      .gp-5 { bottom: 12%; left: 4%; width: 135px; height: 100px; }
+      .gp-8 { bottom: 13%; right: 3%; width: 120px; height: 145px; }
+    }
+
+    /* =========================================
+       共通セクション見出し・コンテンツ
+    ========================================= */
+    section.content-sec {
+      padding: 96px 0;
+      background: #ffffff;
+      border-bottom: 1px solid #dcdcdc;
+    }
+
+    section.content-sec.is-paper {
+      background: transparent;
+    }
+
+    .sec-header {
+      margin-bottom: 48px;
+    }
+
+    .sec-en {
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink-gray);
+    }
+
+    .sec-title {
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    /* MESSAGE */
+    .message-sec {
+      background: var(--ink-black) !important;
+      color: #ffffff;
+    }
+
+    .message-sec .sec-en {
+      color: #999;
+    }
+
+    .message-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .message-lead-box {
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      font-weight: 900;
+      line-height: 1.55;
+      border-left: 4px solid #ffffff;
+      padding-left: 20px;
+    }
+
+    .message-body-box p {
+      margin-bottom: 18px;
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .message-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* ACTIVITY */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      border: 2px solid var(--ink-black);
+      background: #ffffff;
+    }
+
+    .card-top {
+      background: var(--ink-black);
+      color: #ffffff;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-inner {
+      padding: 24px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: #333333;
+    }
+
+    @media (max-width: 860px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* NEWS */
+    .news-list {
+      border-top: 2px solid var(--ink-black);
+      background: #ffffff;
+    }
+
+    .news-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 16px;
+      border-bottom: 1px solid var(--ink-black);
+      transition: background 0.2s;
+    }
+
+    .news-row:hover {
+      background: #f5f5f3;
+    }
+
+    .news-date {
+      font-weight: 700;
+      font-size: 0.9rem;
+      min-width: 96px;
+    }
+
+    .news-label {
+      border: 1.5px solid var(--ink-black);
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      min-width: 84px;
+      text-align: center;
+    }
+
+    .news-label.is-solid {
+      background: var(--ink-black);
+      color: #ffffff;
+    }
+
+    .news-subject {
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 640px) {
+      .news-row {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .news-subject {
+        width: 100%;
+      }
+    }
+
+    /* Q&A */
+    .qa-box {
+      background: #ffffff;
+      border: 2px solid var(--ink-black);
+      margin-bottom: 14px;
+    }
+
+    .qa-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 1.02rem;
+      font-weight: 900;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .qa-btn-left::before {
+      content: "Q.";
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      margin-right: 10px;
+    }
+
+    .qa-plus {
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+    }
+
+    .qa-box.is-open .qa-plus {
+      transform: rotate(45deg);
+    }
+
+    .qa-panel {
+      display: none;
+      padding: 18px 24px 22px 24px;
+      border-top: 1px dashed #cccccc;
+      font-size: 0.95rem;
+      color: #222222;
+    }
+
+    .qa-box.is-open .qa-panel {
+      display: block;
+    }
+
+    /* INFO */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 2px solid var(--ink-black);
+      background: #ffffff;
+    }
+
+    .info-table th,
+    .info-table td {
+      padding: 18px 16px;
+      border-bottom: 1px solid var(--ink-black);
+      text-align: left;
+    }
+
+    .info-table th {
+      width: 28%;
+      font-weight: 900;
+      background: #f5f5f3;
+    }
+
+    @media (max-width: 640px) {
+      .info-table th,
+      .info-table td {
+        display: block;
+        width: 100%;
+      }
+      .info-table th {
+        padding-bottom: 6px;
+        border-bottom: none;
+      }
+      .info-table td {
+        padding-top: 6px;
+      }
+    }
+
+    /* CTA / FOOTER */
+    .cta-panel {
+      background: var(--ink-black);
+      color: #ffffff;
+      padding: 60px 28px;
+      text-align: center;
+      border: 2px solid var(--ink-black);
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .cta-panel p {
+      color: #cccccc;
+      margin-bottom: 30px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--ink-black);
+      padding: 15px 34px;
+      font-weight: 900;
+      border: 2px solid #ffffff;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      padding: 15px 34px;
+      font-weight: 900;
+      border: 2px solid #ffffff;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      color: var(--ink-black);
+    }
+
+    footer {
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink-gray);
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 最上部の流れるニュースティッカー -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <div class="ticker-item">
+        <span class="ticker-tag">新歓</span>
+        <span>ここに流れるお知らせ文言を入れます（例：2027年度新入部員・マネージャーの道場見学を受け付けています）</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-tag">お知らせ</span>
+        <span>ここに2つ目の流れるお知らせ文言を入れます（例：白山キャンパス総合スポーツセンター道場にて活動中）</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-tag">新歓</span>
+        <span>ここに流れるお知らせ文言を入れます（例：2027年度新入部員・マネージャーの道場見学を受け付けています）</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-tag">お知らせ</span>
+        <span>ここに2つ目の流れるお知らせ文言を入れます（例：白山キャンパス総合スポーツセンター道場にて活動中）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo-box">
+        東洋大学<br>空手道部
+      </a>
+      <nav class="nav-pill">
+        <a href="#message">部活を知る</a>
+        <a href="#activity">活動内容</a>
+        <a href="#news">お知らせ</a>
+        <a href="#qa">よくある質問</a>
+        <a href="#entry" class="nav-entry">見学・入部案内</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ファーストビュー：スクロールに合わせて画像が中央に集まるエリア -->
+  <div class="scroll-converge-wrapper" id="scrollStageWrapper">
+    <div class="sticky-stage" id="stickyStage">
+
+      <!-- 四隅から中央へ集まってくる8枚の写真 -->
+      <div class="gather-photo gp-1"><img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=600&q=80" alt="写真1"></div>
+      <div class="gather-photo gp-2"><img src="https://images.unsplash.com/photo-1514050566906-8d077bae7046?auto=format&fit=crop&w=600&q=80" alt="写真2"></div>
+      <div class="gather-photo gp-3"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=80" alt="写真3"></div>
+      <div class="gather-photo gp-4"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="写真4"></div>
+      <div class="gather-photo gp-5"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=80" alt="写真5"></div>
+      <div class="gather-photo gp-6"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=600&q=80" alt="写真6"></div>
+      <div class="gather-photo gp-7"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="写真7"></div>
+      <div class="gather-photo gp-8"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="写真8"></div>
+
+      <!-- 初期表示の中央黒塗りラベルコピー -->
+      <div class="center-copy-group" id="initialCopy">
+        <div>
+          <h1 class="black-bar-title serif-font">一言</h1>
+        </div>
+        <div>
+          <p class="black-bar-sub">ここにキャッチコピーが入ります</p>
+        </div>
+      </div>
+
+      <!-- 写真が中央に集まりきったときに現れるまとめメッセージ -->
+      <div class="converged-message" id="convergedMsg">
+        <span class="en-font" style="font-size:0.8rem; font-weight:700; color:#666;">TOYO UNIV. KARATE CLUB</span>
+        <h2 class="serif-font">ここに集約後の見出しが入ります</h2>
+        <p>ここに、一人ひとりの力や経験が一つに集まるといったコンセプト文が入ります。</p>
+      </div>
+
+      <!-- スクロール案内 -->
+      <div class="scroll-hint" id="scrollHint">
+        <span class="en-font">SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 01 / MESSAGE -->
+  <section id="message" class="content-sec message-sec">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">01 / MESSAGE</span>
+        <h2 class="sec-title">ここにセクションの見出しが入ります</h2>
+      </div>
+      <div class="message-grid">
+        <div class="message-lead-box serif-font">
+          ここに部活の理念や、<br>
+          伝えたい核心の言葉を<br>
+          3行程度で入れます。
+        </div>
+        <div class="message-body-box">
+          <p>
+            ここに1段落目の紹介文が入ります。部活動の雰囲気や、どんな思いで日々の稽古に取り組んでいるかなどを記載するスペースです。
+          </p>
+          <p>
+            ここに2段落目の紹介文が入ります。経験者・未経験者を問わず歓迎する姿勢や、大学生活の中で得られる経験について記載します。
+          </p>
+          <p>
+            ここに3段落目の結びの文が入ります。新入生や見学希望者に向けたメッセージを入れます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 / ACTIVITY -->
+  <section id="activity" class="content-sec is-paper">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">02 / ACTIVITY</span>
+        <h2 class="sec-title">活動内容・3つの特徴（見出しが入ります）</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-top en-font">
+            <span>POINT 01</span>
+            <span>KUMITE</span>
+          </div>
+          <div class="card-inner">
+            <h3 class="card-title">項目タイトル1（例：組手）</h3>
+            <p class="card-text">
+              ここに1つ目の活動内容や特徴についての説明文が入ります。3〜4行程度で簡潔にまとめるとバランスが良くなります。
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top en-font">
+            <span>POINT 02</span>
+            <span>KATA</span>
+          </div>
+          <div class="card-inner">
+            <h3 class="card-title">項目タイトル2（例：形）</h3>
+            <p class="card-text">
+              ここに2つ目の活動内容や特徴についての説明文が入ります。練習の進め方や競技の魅力などを記載します。
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top en-font">
+            <span>POINT 03</span>
+            <span>SUPPORT</span>
+          </div>
+          <div class="card-inner">
+            <h3 class="card-title">項目タイトル3（例：初心者・マネージャー）</h3>
+            <p class="card-text">
+              ここに3つ目の活動内容や特徴についての説明文が入ります。未経験者向けのサポートやチーム体制などを記載します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 / NEWS -->
+  <section id="news" class="content-sec">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">03 / NEWS & TOPICS</span>
+        <h2 class="sec-title">お知らせ・新着情報</h2>
+      </div>
+      <div class="news-list">
+        <a href="#entry" class="news-row">
+          <span class="news-date en-font">2026.11.26</span>
+          <span class="news-label is-solid">カテゴリ</span>
+          <span class="news-subject">ここにお知らせのタイトルが入ります（例：新入生向け体験稽古のお知らせ）</span>
+        </a>
+        <a href="#info" class="news-row">
+          <span class="news-date en-font">2026.11.10</span>
+          <span class="news-label">カテゴリ</span>
+          <span class="news-subject">ここにお知らせのタイトルが入ります（例：大会結果の報告）</span>
+        </a>
+        <a href="#qa" class="news-row">
+          <span class="news-date en-font">2026.10.25</span>
+          <span class="news-label">カテゴリ</span>
+          <span class="news-subject">ここにお知らせのタイトルが入ります（例：今月の稽古スケジュール更新）</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / Q&A -->
+  <section id="qa" class="content-sec is-paper">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">04 / Q & A</span>
+        <h2 class="sec-title">よくある質問</h2>
+      </div>
+
+      <div class="qa-box">
+        <button class="qa-btn" type="button">
+          <span class="qa-btn-left">ここに質問文1が入ります（例：初心者でも入部できますか？）</span>
+          <span class="qa-plus">+</span>
+        </button>
+        <div class="qa-panel">
+          ここに質問1に対する回答文が入ります。クリックすると開閉する仕組みになっています。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <button class="qa-btn" type="button">
+          <span class="qa-btn-left">ここに質問文2が入ります（例：他キャンパスからの参加は可能ですか？）</span>
+          <span class="qa-plus">+</span>
+        </button>
+        <div class="qa-panel">
+          ここに質問2に対する回答文が入ります。赤羽台キャンパスなど他キャンパスからの通い方や授業との調整について記載できます。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <button class="qa-btn" type="button">
+          <span class="qa-btn-left">ここに質問文3が入ります（例：アルバイトや学業と両立できますか？）</span>
+          <span class="qa-plus">+</span>
+        </button>
+        <div class="qa-panel">
+          ここに質問3に対する回答文が入ります。テスト期間やバイトとの両立について記載できます。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / OUTLINE -->
+  <section id="info" class="content-sec">
+    <div class="container">
+      <div class="sec-header">
+        <span class="sec-en en-font">05 / OUTLINE</span>
+        <h2 class="sec-title">活動概要</h2>
+      </div>
+      <table class="info-table">
+        <tr>
+          <th>団体名</th>
+          <td>東洋大学体育会空手道部</td>
+        </tr>
+        <tr>
+          <th>活動場所</th>
+          <td>東洋大学 白山キャンパス 総合スポーツセンター内道場（〒112-8606 東京都文京区白山5-28-20）</td>
+        </tr>
+        <tr>
+          <th>活動日時</th>
+          <td>ここに練習曜日・時間を記載します</td>
+        </tr>
+        <tr>
+          <th>募集対象</th>
+          <td>ここに募集対象（全学部・選手・マネージャーなど）を記載します</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ENTRY / CTA -->
+  <section id="entry" class="content-sec is-paper" style="border-bottom: none;">
+    <div class="container">
+      <div class="cta-panel">
+        <span class="en-font" style="letter-spacing:0.15em; font-size:0.85rem; color:#aaa;">CONTACT / ENTRY</span>
+        <h2>ここに見学・体験への呼びかけ文が入ります</h2>
+        <p>
+          ここに応募方法やSNSからの連絡方法についての案内文が入ります。
+        </p>
+        <div class="cta-btn-group">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn-primary">公式Instagramリンク</a>
+          <a href="#info" class="btn-secondary">活動場所を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <p class="en-font" style="font-weight:700; color:#111; margin-bottom:6px;">TOYO UNIVERSITY KARATE CLUB</p>
+      <p>&copy; 東洋大学空手道部 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- スクロール連動アニメーション用JavaScript -->
+  <script>
+    const wrapper = document.getElementById('scrollStageWrapper');
+    const photos = document.querySelectorAll('.gather-photo');
+    const initialCopy = document.getElementById('initialCopy');
+    const convergedMsg = document.getElementById('convergedMsg');
+    const scrollHint = document.getElementById('scrollHint');
+
+    function updateScrollConvergence() {
+      const rect = wrapper.getBoundingClientRect();
+      const scrollableDistance = wrapper.offsetHeight - window.innerHeight;
+      if (scrollableDistance <= 0) return;
+
+      // スクロール進行度（0.0 〜 1.0）を算出
+      const scrolled = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
+
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      // 1. 各写真を画面中央へ向かって移動＆縮小させる
+      photos.forEach((photo, idx) => {
+        // 元の位置（offsetLeft / offsetTop）から画面中央までの差分を計算
+        const photoCenterX = photo.offsetLeft + photo.offsetWidth / 2;
+        const photoCenterY = photo.offsetTop + photo.offsetHeight / 2;
+        const deltaX = centerX - photoCenterX;
+        const deltaY = centerY - photoCenterY;
+
+        // 写真ごとにわずかな時間差をつけて集める
+        const stagger = idx * 0.015;
+        const localProgress = Math.max(0, Math.min(1, (progress - stagger) / (0.82 - stagger)));
+        // 滑らかなイージング（加速してから減速）
+        const ease = localProgress < 0.5
+          ? 2 * localProgress * localProgress
+          : 1 - Math.pow(-2 * localProgress + 2, 2) / 2;
+
+        const moveX = deltaX * ease;
+        const moveY = deltaY * ease;
+        // 中央に近づくにつれて少し小さくなり、重なり合う
+        const scale = 1 - (0.35 * ease);
+        // 終盤（80%以降）で中央のカードに吸収されるようにフェードアウト
+        const opacity = progress > 0.78 ? Math.max(0, 1 - (progress - 0.78) / 0.16) : 1;
+
+        photo.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale})`;
+        photo.style.opacity = opacity;
+      });
+
+      // 2. 最初の黒帯コピーはスクロール中盤〜終盤で小さくフェードアウト
+      const copyFade = progress > 0.55 ? Math.max(0, 1 - (progress - 0.55) / 0.25) : 1;
+      initialCopy.style.opacity = copyFade;
+      initialCopy.style.transform = `scale(${1 - progress * 0.15})`;
+
+      // 3. 写真が中央に集まりきった終盤（72%以降）で新しい中央メッセージが出現
+      if (progress > 0.72) {
+        const msgProgress = Math.min(1, (progress - 0.72) / 0.2);
+        convergedMsg.style.opacity = msgProgress;
+        convergedMsg.style.transform = `translateY(${(1 - msgProgress) * 24}px) scale(${0.95 + msgProgress * 0.05})`;
+      } else {
+        convergedMsg.style.opacity = 0;
+      }
+
+      // 4. スクロール案内は少し動かしたら消す
+      scrollHint.style.opacity = Math.max(0, 1 - progress * 6);
+    }
+
+    window.addEventListener('scroll', updateScrollConvergence, { passive: true });
+    window.addEventListener('resize', updateScrollConvergence);
+    window.addEventListener('DOMContentLoaded', updateScrollConvergence);
+
+    // Q&Aアコーディオン開閉
+    document.querySelectorAll('.qa-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentElement.classList.toggle('is-open');
+      });
+    });
+  </script>
+</body>
+</html>
