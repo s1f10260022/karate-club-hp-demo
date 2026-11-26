@@ -7,18 +7,18 @@
   <title>東洋大学二部体育会空手道部 | TOYO UNIV. KARATE CLUB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@600;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@700&family=Syne:wght@800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --theme-color: #0f2350; /* 初期カラー：鉄紺 */
-      --ink-dark: #18181b;
-      --ink-muted: #52525b;
+      --theme-color: #0f2350; /* 鉄紺 */
+      --ink-dark: #141416;
+      --ink-muted: #686870;
       --bg-light: #ffffff;
-      --bg-subtle: #f8f8fa;
-      --border-subtle: #e4e4e7;
+      --bg-subtle: #f6f6f8;
+      --border-light: #e4e4e9;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -36,18 +36,15 @@
       line-height: 1.8;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    @media (min-width: 861px) {
+      body { padding-bottom: 0; }
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
     .display-font {
       font-family: 'Syne', 'Oswald', sans-serif;
@@ -61,7 +58,7 @@
     }
 
     /* =========================================
-       ローディング演出（高速・洗練版）
+       ローディング画面（高速・洗練版）
     ========================================= */
     .loader-screen {
       position: fixed;
@@ -84,7 +81,6 @@
       font-size: clamp(1.8rem, 4.5vw, 3.8rem);
       font-weight: 800;
       color: var(--theme-color);
-      line-height: 1;
     }
 
     .loader-count {
@@ -94,29 +90,29 @@
     }
 
     /* =========================================
-       PC左サイドレール ＆ スマホ上部ヘッダー
+       PC左端レール & スマホ上部ヘッダー
     ========================================= */
     .side-rail {
       position: fixed;
       top: 0;
       left: 0;
-      width: 48px;
+      width: 46px;
       height: 100vh;
       background: #ffffff;
-      border-right: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-light);
       z-index: 1000;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 0;
+      padding: 20px 0;
     }
 
     .side-rail-top {
       writing-mode: vertical-rl;
       font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       color: var(--ink-muted);
     }
 
@@ -133,18 +129,16 @@
     }
 
     @media (max-width: 860px) {
-      .side-rail {
-        display: none;
-      }
+      .side-rail { display: none; }
       .mobile-header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 56px;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid var(--border-subtle);
+        height: 58px;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-light);
         z-index: 1100;
         display: flex;
         align-items: center;
@@ -153,54 +147,54 @@
       }
       .mobile-logo {
         font-weight: 900;
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         color: var(--theme-color);
-        transition: color 0.6s ease;
+        transition: color 0.5s ease;
       }
       .mobile-menu-btn {
         width: 44px;
         height: 44px;
-        background: none;
+        background: var(--theme-color);
+        color: #fff;
         border: none;
+        border-radius: 4px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 5px;
+        gap: 4px;
         cursor: pointer;
+        transition: background-color 0.5s ease;
       }
       .mobile-menu-btn span {
-        display: block;
-        width: 22px;
+        width: 18px;
         height: 2px;
-        background: var(--ink-dark);
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        background: #fff;
+        transition: transform 0.25s ease, opacity 0.25s ease;
       }
       .mobile-menu-btn[aria-expanded="true"] span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+        transform: translateY(6px) rotate(45deg);
       }
-      .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-      }
+      .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
       .mobile-menu-btn[aria-expanded="true"] span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        transform: translateY(-6px) rotate(-45deg);
       }
     }
 
-    /* スマホ全画面ナビゲーション */
+    /* スマホ全画面ナビ */
     .mobile-nav-overlay {
       position: fixed;
       inset: 0;
       background: var(--theme-color);
       color: #ffffff;
       z-index: 1050;
+      padding: 84px 28px 40px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 72px 28px 36px;
+      justify-content: space-between;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.6s ease;
+      transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.5s ease;
     }
 
     .mobile-nav-overlay.is-open {
@@ -208,30 +202,35 @@
       visibility: visible;
     }
 
-    .mobile-nav-overlay ul {
+    .mobile-nav-links {
       list-style: none;
-      margin-bottom: 32px;
     }
 
-    .mobile-nav-overlay li {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .mobile-nav-links li {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
-    .mobile-nav-overlay a {
+    .mobile-nav-links a {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       padding: 16px 0;
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .mobile-nav-links a span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0.85;
     }
 
     /* =========================================
-       ファーストビュー：2分割カラースライド
+       ファーストビュー：PC2分割 / スマホ最適化フルスクリーン
     ========================================= */
     .split-hero {
       position: relative;
-      margin-left: 48px;
+      margin-left: 46px;
       min-height: 100vh;
       display: grid;
       grid-template-columns: 42% 58%;
@@ -241,19 +240,18 @@
     .hero-left-panel {
       background-color: var(--theme-color);
       color: #ffffff;
-      padding: 48px;
+      padding: 44px 48px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: background-color 0.7s ease;
-      position: relative;
       z-index: 10;
     }
 
     .mega-logo {
-      font-size: clamp(2.5rem, 4.8vw, 4.4rem);
+      font-size: clamp(2.5rem, 5vw, 4.6rem);
       font-weight: 800;
-      line-height: 0.95;
+      line-height: 0.96;
       color: #ffffff;
     }
 
@@ -261,7 +259,7 @@
       margin-top: 12px;
       font-size: 0.85rem;
       font-weight: 700;
-      opacity: 0.9;
+      opacity: 0.92;
     }
 
     .hero-menu-list {
@@ -274,7 +272,7 @@
     }
 
     .hero-menu-list a {
-      font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+      font-size: clamp(1.35rem, 2.2vw, 1.9rem);
       font-weight: 700;
       display: inline-flex;
       align-items: baseline;
@@ -287,7 +285,7 @@
       opacity: 0.85;
     }
 
-    .hero-menu-list a span.jp-sub {
+    .hero-menu-list a .jp-sub {
       font-size: 0.78rem;
       font-weight: 500;
       opacity: 0.8;
@@ -306,13 +304,13 @@
     }
 
     .topics-link {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
       text-decoration: underline;
       text-underline-offset: 4px;
     }
 
-    /* 右側スライドショーエリア（スワイプ対応） */
+    /* 右側スライドエリア */
     .hero-right-visual {
       position: relative;
       width: 100%;
@@ -328,7 +326,7 @@
       width: 100%;
       height: 100%;
       transform: translateY(100%);
-      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       z-index: 1;
     }
 
@@ -338,9 +336,8 @@
     }
 
     .slide-frame.is-prev {
-      transform: translateY(-18%);
+      transform: translateY(-20%);
       z-index: 2;
-      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .slide-frame img {
@@ -358,10 +355,12 @@
       color: var(--ink-dark);
       padding: 20px 24px;
       backdrop-filter: blur(8px);
+      border-left: 4px solid var(--theme-color);
+      transition: border-color 0.7s ease;
     }
 
     .slide-overlay-caption h2 {
-      font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+      font-size: clamp(1.2rem, 2.2vw, 1.7rem);
       font-weight: 900;
       margin-bottom: 4px;
     }
@@ -371,7 +370,7 @@
       color: var(--ink-muted);
     }
 
-    /* タップ領域を44px確保したスライド切り替えドット */
+    /* タップしやすい大きさ（44px領域）を確保したドットナビ */
     .slide-dots {
       position: absolute;
       right: 16px;
@@ -381,11 +380,14 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 8px 4px;
+      border-radius: 24px;
     }
 
     .slide-dot {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       border: none;
       background: transparent;
       cursor: pointer;
@@ -400,45 +402,41 @@
       height: 10px;
       border-radius: 50%;
       border: 2px solid #ffffff;
-      background: rgba(0, 0, 0, 0.3);
       transition: background 0.2s, transform 0.2s;
     }
 
     .slide-dot.is-active::after {
       background: #ffffff;
-      transform: scale(1.3);
+      transform: scale(1.25);
     }
 
-    /* スマホファースト調整：ファーストビューで必ず写真とキャッチが画面内に収まる */
+    /* スマホレイアウト（写真を主役にし、縦長押し出しを解消） */
     @media (max-width: 860px) {
       .split-hero {
         margin-left: 0;
-        padding-top: 56px;
-        display: flex;
-        flex-direction: column-reverse;
-        min-height: 100svh;
+        padding-top: 58px;
+        grid-template-columns: 1fr;
+        min-height: calc(100svh - 60px);
+      }
+      .hero-left-panel {
+        order: 2;
+        padding: 24px 20px;
+      }
+      .hero-menu-list {
+        display: none; /* スマホはハンバーガーメニューに集約 */
+      }
+      .mega-logo {
+        font-size: 2.1rem;
       }
       .hero-right-visual {
-        height: 56svh;
+        order: 1;
+        height: 54svh;
       }
       .slide-overlay-caption {
         bottom: 16px;
         left: 16px;
-        right: 56px;
+        right: 60px;
         padding: 14px 16px;
-      }
-      .hero-left-panel {
-        padding: 24px 20px 32px;
-        flex: 1;
-      }
-      .mega-logo {
-        font-size: 2rem;
-      }
-      .hero-menu-list {
-        display: none; /* スマホは上部ハンバーガーメニューに集約 */
-      }
-      .hero-topics {
-        margin-top: 16px;
       }
     }
 
@@ -446,22 +444,16 @@
        メインコンテンツ共通
     ========================================= */
     main {
-      margin-left: 48px;
+      margin-left: 46px;
     }
 
     @media (max-width: 860px) {
-      main {
-        margin-left: 0;
-      }
+      main { margin-left: 0; }
     }
 
     .section-wrap {
       padding: 96px 6vw;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .section-wrap.is-subtle {
-      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-light);
     }
 
     .section-header-row {
@@ -474,7 +466,7 @@
     }
 
     .section-big-title {
-      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
       font-weight: 800;
       line-height: 1;
       color: var(--ink-dark);
@@ -487,12 +479,6 @@
       margin-top: 8px;
     }
 
-    @media (max-width: 768px) {
-      .section-wrap {
-        padding: 68px 20px;
-      }
-    }
-
     /* =========================================
        GALLERY（横スクロールギャラリー）
     ========================================= */
@@ -502,15 +488,15 @@
     }
 
     .filter-tab {
-      min-height: 44px;
       background: none;
       border: none;
       cursor: pointer;
-      padding: 0 14px;
+      padding: 10px 14px;
+      min-height: 44px;
       color: var(--ink-muted);
       border-bottom: 2px solid transparent;
       font-family: inherit;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
     }
 
@@ -525,13 +511,9 @@
       overflow-x: auto;
       padding-bottom: 20px;
       scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
     }
 
-    .horizontal-gallery::-webkit-scrollbar {
-      height: 5px;
-    }
-
+    .horizontal-gallery::-webkit-scrollbar { height: 5px; }
     .horizontal-gallery::-webkit-scrollbar-thumb {
       background: #cbd5e1;
       border-radius: 3px;
@@ -541,20 +523,13 @@
       flex: 0 0 290px;
       scroll-snap-align: start;
       background: #ffffff;
-      transition: transform 0.3s ease;
-    }
-
-    @media (max-width: 480px) {
-      .gallery-card {
-        flex: 0 0 80vw;
-      }
     }
 
     .gallery-thumb {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      height: 340px;
       overflow: hidden;
-      background: #f4f4f5;
+      background: var(--bg-subtle);
       margin-bottom: 14px;
     }
 
@@ -575,7 +550,7 @@
       color: var(--theme-color);
       display: block;
       margin-bottom: 4px;
-      transition: color 0.6s ease;
+      transition: color 0.7s ease;
     }
 
     .gallery-title {
@@ -584,7 +559,7 @@
     }
 
     /* =========================================
-       INSTRUCTORS（指導員紹介：枠線なしの洗練レイアウト）
+       INSTRUCTORS（指導員紹介：洗練されたエディトリアル風）
     ========================================= */
     .instructors-grid {
       display: grid;
@@ -593,4 +568,595 @@
     }
 
     .instructor-card {
-      display:
+      display: flex;
+      flex-direction: column;
+    }
+
+    .instructor-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #ececf0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .instructor-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .instructor-role {
+      display: inline-block;
+      width: fit-content;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--theme-color);
+      padding: 2px 10px;
+      margin-bottom: 10px;
+      transition: background-color 0.7s ease;
+    }
+
+    .instructor-name {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .instructor-meta {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .instructor-desc {
+      font-size: 0.92rem;
+      color: #3f3f46;
+    }
+
+    @media (max-width: 860px) {
+      .instructors-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* =========================================
+       ABOUT & OUTLINE
+    ========================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-catch {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.5;
+      color: var(--theme-color);
+      transition: color 0.7s ease;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+      color: #3f3f46;
+    }
+
+    .outline-list {
+      margin-top: 28px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .outline-row {
+      display: flex;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.95rem;
+      gap: 16px;
+    }
+
+    .outline-row dt {
+      width: 140px;
+      font-weight: 700;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 820px) {
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .outline-row { flex-direction: column; gap: 4px; }
+    }
+
+    /* =========================================
+       CONTACT & スマホ追従バー
+    ========================================= */
+    .contact-banner {
+      background: var(--theme-color);
+      color: #ffffff;
+      padding: 56px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 28px;
+      transition: background-color 0.7s ease;
+    }
+
+    .contact-banner h2 {
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .contact-banner p {
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    .contact-btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--ink-dark);
+      padding: 15px 28px;
+      min-height: 48px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    footer {
+      margin-left: 46px;
+      padding: 36px 6vw;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 860px) {
+      footer { margin-left: 0; }
+    }
+
+    /* スマホ下部追従CTA */
+    .mobile-sticky-cta {
+      display: none;
+    }
+
+    @media (max-width: 860px) {
+      .mobile-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: var(--theme-color);
+        color: #ffffff;
+        z-index: 1040;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        transition: background-color 0.7s ease;
+        border-top: 1px solid rgba(255,255,255,0.25);
+      }
+      .mobile-sticky-cta a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+      .mobile-sticky-cta a:first-child {
+        border-right: 1px solid rgba(255,255,255,0.25);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ローディングスクリーン -->
+  <div class="loader-screen" id="loaderScreen">
+    <div class="loader-brand display-font">TOYO KARATE</div>
+    <span class="loader-count display-font" id="loaderCount">0</span>
+  </div>
+
+  <!-- PC左サイドレール -->
+  <aside class="side-rail">
+    <span class="side-rail-top en-font">TOYO UNIV. KARATE CLUB</span>
+    <a href="#top" class="side-rail-menu en-font">TOP</a>
+  </aside>
+
+  <!-- スマホ専用ヘッダー -->
+  <header class="mobile-header">
+    <a href="#top" class="mobile-logo">東洋大学二部体育会空手道部</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-expanded="false" aria-controls="mobileNavOverlay" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- スマホ全画面ナビ -->
+  <nav class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <ul class="mobile-nav-links display-font">
+      <li><a href="#gallery">Activity <span>活動記録</span></a></li>
+      <li><a href="#instructors">Instructors <span>指導員紹介</span></a></li>
+      <li><a href="#about">About <span>部活紹介</span></a></li>
+      <li><a href="#outline">Schedule <span>練習日・概要</span></a></li>
+      <li><a href="#contact">Contact <span>見学・連絡先</span></a></li>
+    </ul>
+    <div class="contact-btn-row">
+      <a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener" class="btn-light" style="width:100%;">Instagram (@toyo2karatedo)</a>
+    </div>
+  </nav>
+
+  <!-- ファーストビュー -->
+  <section class="split-hero" id="top">
+    <div class="hero-left-panel" id="heroLeftPanel">
+      <div>
+        <h1 class="mega-logo display-font">TOYO KARATE</h1>
+        <p class="brand-tagline">東洋大学二部体育会空手道部 | 白山キャンパス</p>
+      </div>
+
+      <ul class="hero-menu-list display-font">
+        <li><a href="#gallery">Activity <span class="jp-sub">活動記録</span></a></li>
+        <li><a href="#instructors">Instructors <span class="jp-sub">指導員紹介</span></a></li>
+        <li><a href="#about">About <span class="jp-sub">部活紹介</span></a></li>
+        <li><a href="#outline">Schedule <span class="jp-sub">練習日・概要</span></a></li>
+        <li><a href="#contact">Contact <span class="jp-sub">見学・連絡先</span></a></li>
+      </ul>
+
+      <div class="hero-topics">
+        <div class="topics-label en-font">Topics</div>
+        <a href="#contact" class="topics-link">ここにお知らせ・新歓案内の一文が入ります →</a>
+      </div>
+    </div>
+
+    <div class="hero-right-visual" id="heroVisualStage">
+      <div class="slide-frame is-active" data-color="#0f2350">
+        <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1200&q=80" alt="スライド1">
+        <div class="slide-overlay-caption">
+          <h2>一言（メインキャッチコピー1）</h2>
+          <p>ここに1枚目の写真に合わせた短い紹介文が入ります。</p>
+        </div>
+      </div>
+
+      <div class="slide-frame" data-color="#8b1e24">
+        <img src="https://images.unsplash.com/photo-1514050566906-8d077bae7046?auto=format&fit=crop&w=1200&q=80" alt="スライド2">
+        <div class="slide-overlay-caption">
+          <h2>一言（メインキャッチコピー2）</h2>
+          <p>ここに2枚目の写真に合わせた短い紹介文が入ります。</p>
+        </div>
+      </div>
+
+      <div class="slide-frame" data-color="#b5892e">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1200&q=80" alt="スライド3">
+        <div class="slide-overlay-caption">
+          <h2>一言（メインキャッチコピー3）</h2>
+          <p>ここに3枚目の写真に合わせた短い紹介文が入ります。</p>
+        </div>
+      </div>
+
+      <div class="slide-frame" data-color="#1c1c1e">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80" alt="スライド4">
+        <div class="slide-overlay-caption">
+          <h2>一言（メインキャッチコピー4）</h2>
+          <p>ここに4枚目の写真に合わせた短い紹介文が入ります。</p>
+        </div>
+      </div>
+
+      <div class="slide-dots" id="slideDots">
+        <button class="slide-dot is-active" type="button" aria-label="スライド1"></button>
+        <button class="slide-dot" type="button" aria-label="スライド2"></button>
+        <button class="slide-dot" type="button" aria-label="スライド3"></button>
+        <button class="slide-dot" type="button" aria-label="スライド4"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <!-- GALLERY -->
+    <section class="section-wrap" id="gallery">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-big-title display-font">Activity</h2>
+          <p class="section-jp-note">活動風景・大会結果（横にスクロールできます）</p>
+        </div>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab is-active" type="button" data-filter="all">All</button>
+          <button class="filter-tab" type="button" data-filter="practice">稽古風景</button>
+          <button class="filter-tab" type="button" data-filter="tournament">大会・行事</button>
+        </div>
+      </div>
+
+      <div class="horizontal-gallery" id="galleryTrack">
+        <article class="gallery-card" data-category="practice">
+          <div class="gallery-thumb">
+            <img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=600&q=80" alt="ギャラリー1">
+          </div>
+          <span class="gallery-cat">PRACTICE</span>
+          <h3 class="gallery-title">ここに写真タイトル1が入ります</h3>
+        </article>
+
+        <article class="gallery-card" data-category="tournament">
+          <div class="gallery-thumb">
+            <img src="https://images.unsplash.com/photo-1514050566906-8d077bae7046?auto=format&fit=crop&w=600&q=80" alt="ギャラリー2">
+          </div>
+          <span class="gallery-cat">TOURNAMENT</span>
+          <h3 class="gallery-title">ここに写真タイトル2が入ります</h3>
+        </article>
+
+        <article class="gallery-card" data-category="practice">
+          <div class="gallery-thumb">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=80" alt="ギャラリー3">
+          </div>
+          <span class="gallery-cat">PRACTICE</span>
+          <h3 class="gallery-title">ここに写真タイトル3が入ります</h3>
+        </article>
+
+        <article class="gallery-card" data-category="tournament">
+          <div class="gallery-thumb">
+            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=600&q=80" alt="ギャラリー4">
+          </div>
+          <span class="gallery-cat">TOURNAMENT</span>
+          <h3 class="gallery-title">ここに写真タイトル4が入ります</h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- INSTRUCTORS（枠線なしのクリーンなレイアウト） -->
+    <section class="section-wrap" id="instructors" style="background: var(--bg-subtle);">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-big-title display-font">Instructors</h2>
+          <p class="section-jp-note">指導員紹介</p>
+        </div>
+      </div>
+
+      <div class="instructors-grid">
+        <article class="instructor-card">
+          <div class="instructor-photo">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <span class="instructor-role">役職名（例：師範 / 監督）</span>
+          <h3 class="instructor-name">指導員 氏名1</h3>
+          <p class="instructor-meta">流派・段位・経歴などが入ります</p>
+          <p class="instructor-desc">
+            ここに指導員からのメッセージやプロフィール文が入ります。
+          </p>
+        </article>
+
+        <article class="instructor-card">
+          <div class="instructor-photo">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <span class="instructor-role">役職名（例：コーチ）</span>
+          <h3 class="instructor-name">指導員 氏名2</h3>
+          <p class="instructor-meta">流派・段位・経歴などが入ります</p>
+          <p class="instructor-desc">
+            ここに指導員からのメッセージやプロフィール文が入ります。
+          </p>
+        </article>
+
+        <article class="instructor-card">
+          <div class="instructor-photo">
+            <span>指導員写真枠（任意）</span>
+          </div>
+          <span class="instructor-role">役職名（例：コーチ / OB指導員）</span>
+          <h3 class="instructor-name">指導員 氏名3</h3>
+          <p class="instructor-meta">流派・段位・経歴などが入ります</p>
+          <p class="instructor-desc">
+            ここに指導員からのメッセージやプロフィール文が入ります。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT & OUTLINE -->
+    <section class="section-wrap" id="about">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-big-title display-font">About</h2>
+          <p class="section-jp-note">空手道部紹介・活動概要</p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-catch" id="aboutCatch">
+          ここに部活の特徴や<br>
+          メッセージを表す<br>
+          見出し文が入ります。
+        </div>
+        <div class="about-text">
+          <p>
+            ここに1段落目の紹介文が入ります。東洋大学二部体育会空手道部の特徴や雰囲気について記載するスペースです。
+          </p>
+          <p>
+            ここに2段落目の紹介文が入ります。流派（糸東流）や学生主体での活動スタイル、OBOG会（洋空会）とのつながりなどを記載します。
+          </p>
+
+          <dl class="outline-list" id="outline">
+            <div class="outline-row">
+              <dt>団体名</dt>
+              <dd>東洋大学二部体育会空手道部</dd>
+            </div>
+            <div class="outline-row">
+              <dt>流派・OB会</dt>
+              <dd>糸東流 ／ OBOG会「洋空会」</dd>
+            </div>
+            <div class="outline-row">
+              <dt>活動場所</dt>
+              <dd>東洋大学 白山キャンパス 4号館B1F多目的ルーム（東京都文京区白山5-28-20）</dd>
+            </div>
+            <div class="outline-row">
+              <dt>練習日・行事予定</dt>
+              <dd>ここに練習曜日・時間・年間行事予定を記載します</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-wrap" id="contact" style="border-bottom:none;">
+      <div class="contact-banner" id="contactBanner">
+        <div>
+          <h2>ここに見学・体験への呼びかけ文が入ります</h2>
+          <p>白山キャンパス4号館B1F多目的ルームでの見学や、公式SNSからのご連絡案内が入ります。</p>
+        </div>
+        <div class="contact-btn-row">
+          <a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener" class="btn-light">Instagram (@toyo2karatedo) →</a>
+          <a href="https://twitter.com/toyo2karatedo" target="_blank" rel="noopener" class="btn-light">X (@toyo2karatedo) →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>TOYO UNIVERSITY KARATE CLUB</span>
+    <span>&copy; 東洋大学二部体育会空手道部 All Rights Reserved.</span>
+  </footer>
+
+  <!-- スマホ下部追従CTAバー -->
+  <div class="mobile-sticky-cta" id="mobileStickyCta">
+    <a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener">Instagramで見学相談</a>
+    <a href="#outline">道場アクセス・概要</a>
+  </div>
+
+  <script>
+    // 1. ローディングアニメーション
+    window.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('loaderScreen');
+      const countEl = document.getElementById('loaderCount');
+      let count = 0;
+
+      const timer = setInterval(() => {
+        count += Math.floor(Math.random() * 22) + 14;
+        if (count >= 100) {
+          count = 100;
+          countEl.textContent = count;
+          clearInterval(timer);
+          setTimeout(() => loader.classList.add('is-done'), 200);
+        } else {
+          countEl.textContent = count;
+        }
+      }, 40);
+    });
+
+    // 2. スマホハンバーガーメニュー
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+    function toggleMobileMenu(forceClose = false) {
+      const isOpen = forceClose ? false : mobileMenuBtn.getAttribute('aria-expanded') !== 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+      mobileNavOverlay.setAttribute('aria-hidden', String(!isOpen));
+      mobileNavOverlay.classList.toggle('is-open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+    mobileNavOverlay.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => toggleMobileMenu(true));
+    });
+
+    // 3. 左右連動カラースライドショー（スワイプ操作対応）
+    const slides = document.querySelectorAll('.slide-frame');
+    const dots = document.querySelectorAll('.slide-dot');
+    const visualStage = document.getElementById('heroVisualStage');
+    let currentIndex = 0;
+    let slideInterval;
+
+    function goToSlide(nextIndex) {
+      if (nextIndex === currentIndex) return;
+
+      slides.forEach((s, i) => {
+        s.classList.remove('is-active', 'is-prev');
+        if (i === currentIndex) s.classList.add('is-prev');
+        if (i === nextIndex) s.classList.add('is-active');
+      });
+
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === nextIndex));
+
+      const newColor = slides[nextIndex].getAttribute('data-color');
+      document.documentElement.style.setProperty('--theme-color', newColor);
+
+      currentIndex = nextIndex;
+    }
+
+    function startAutoSlide() {
+      slideInterval = setInterval(() => {
+        goToSlide((currentIndex + 1) % slides.length);
+      }, 4500);
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        goToSlide(idx);
+        startAutoSlide();
+      });
+    });
+
+    // スマホ指スワイプ検知
+    let touchStartX = 0;
+    visualStage.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    visualStage.addEventListener('touchend', e => {
+      const diffX = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diffX) > 45) {
+        clearInterval(slideInterval);
+        const next = diffX < 0
+          ? (currentIndex + 1) % slides.length
+          : (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(next);
+        startAutoSlide();
+      }
+    }, { passive: true });
+
+    startAutoSlide();
+
+    // 4. ギャラリー絞り込み
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const galleryCards = document.querySelectorAll('.gallery-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        const filter = tab.getAttribute('data-filter');
+        galleryCards.forEach(card => {
+          card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
