@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>デザイン案比較ページ | 東洋大学二部体育会空手道部</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #18181b;
+      color: #ffffff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* 上部コントロールバー */
+    .control-bar {
+      background: #111111;
+      border-bottom: 1px solid #333333;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .bar-title {
+      font-size: 0.88rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bar-badge {
+      background: #ffffff;
+      color: #111111;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    /* 案切り替えタブ */
+    .plan-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .plan-btn {
+      background: #27272a;
+      color: #d4d4d8;
+      border: 1px solid #3f3f46;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: inherit;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .plan-btn:hover {
+      background: #3f3f46;
+      color: #ffffff;
+    }
+
+    .plan-btn.is-active {
+      background: #ffffff;
+      color: #111111;
+      border-color: #ffffff;
+    }
+
+    /* 右側ツール（PC/スマホ表示切替・別タブで開く） */
+    .view-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .device-btn {
+      background: #27272a;
+      color: #a1a1aa;
+      border: 1px solid #3f3f46;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: inherit;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .device-btn.is-active {
+      background: #3f3f46;
+      color: #ffffff;
+      border-color: #71717a;
+    }
+
+    .open-direct-link {
+      background: #0f2350;
+      color: #ffffff;
+      border: 1px solid #25468f;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .open-direct-link:hover {
+      opacity: 0.85;
+    }
+
+    /* 特徴説明サブバー */
+    .desc-bar {
+      background: #222225;
+      border-bottom: 1px solid #333333;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      color: #d4d4d8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* プレビュー表示領域 */
+    .preview-stage {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #2e2e32;
+      overflow: hidden;
+      padding: 0;
+      transition: padding 0.3s ease;
+    }
+
+    .preview-stage.is-mobile-mode {
+      padding: 16px;
+    }
+
+    iframe#previewFrame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #ffffff;
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), height 0.35s ease, border-radius 0.35s ease;
+    }
+
+    .preview-stage.is-mobile-mode iframe#previewFrame {
+      width: 390px;
+      height: 100%;
+      max-height: 820px;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      border: 6px solid #111111;
+    }
+
+    @media (max-width: 768px) {
+      .view-tools {
+        display: none;
+      }
+      .control-bar {
+        padding: 8px 12px;
+      }
+      .plan-btn {
+        padding: 6px 10px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 上部切り替えバー -->
+  <div class="control-bar">
+    <div class="bar-title">
+      <span class="bar-badge">HPデザイン案比較</span>
+      <span>東洋大学二部体育会空手道部</span>
+    </div>
+
+    <div class="plan-tabs">
+      <button class="plan-btn is-active" data-file="index.html" data-desc="【案1】モノトーン基調・紙テクスチャ背景。周囲の写真がテンポよく広がりループするデザイン">
+        案1：写真が広がる演出
+      </button>
+      <button class="plan-btn" data-file="plan2.html" data-desc="【案2】モノトーン基調。下にスクロールすると四隅の写真が画面中央に集約していくデザイン">
+        案2：スクロールで写真が集まる演出
+      </button>
+      <button class="plan-btn" data-file="plan3.html" data-desc="【案3】左右2分割レイアウト。写真スライドに合わせて左側の背景カラーが切り替わるモダンなデザイン">
+        案3：左右2分割カラースライド
+      </button>
+    </div>
+
+    <div class="view-tools">
+      <button class="device-btn is-active" id="btnPc">PC表示</button>
+      <button class="device-btn" id="btnMobile">スマホ表示</button>
+      <a href="index.html" target="_blank" rel="noopener" class="open-direct-link" id="directLink">この案を全画面で開く ↗</a>
+    </div>
+  </div>
+
+  <!-- 選択中の案の特徴解説 -->
+  <div class="desc-bar">
+    <span id="planDesc">【案1】モノトーン基調・紙テクスチャ背景。周囲の写真がテンポよく広がりループするデザイン</span>
+    <span style="color:#a1a1aa; font-size:0.75rem;">※上のボタンで3案を切り替えられます</span>
+  </div>
+
+  <!-- プレビュー画面（iframe） -->
+  <div class="preview-stage" id="previewStage">
+    <iframe id="previewFrame" src="index.html" title="ホームページデザイン案プレビュー"></iframe>
+  </div>
+
+  <script>
+    const planBtns = document.querySelectorAll('.plan-btn');
+    const previewFrame = document.getElementById('previewFrame');
+    const planDesc = document.getElementById('planDesc');
+    const directLink = document.getElementById('directLink');
+    const previewStage = document.getElementById('previewStage');
+    const btnPc = document.getElementById('btnPc');
+    const btnMobile = document.getElementById('btnMobile');
+
+    // 案の切り替え処理
+    planBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        planBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        const file = btn.getAttribute('data-file');
+        const desc = btn.getAttribute('data-desc');
+
+        previewFrame.src = file;
+        planDesc.textContent = desc;
+        directLink.href = file;
+      });
+    });
+
+    // PC表示 / スマホ表示の切り替え処理
+    btnPc.addEventListener('click', () => {
+      btnPc.classList.add('is-active');
+      btnMobile.classList.remove('is-active');
+      previewStage.classList.remove('is-mobile-mode');
+    });
+
+    btnMobile.addEventListener('click', () => {
+      btnMobile.classList.add('is-active');
+      btnPc.classList.remove('is-active');
+      previewStage.classList.add('is-mobile-mode');
+    });
+  </script>
+</body>
+</html>
