@@ -909,6 +909,116 @@
         border-right: 1px solid rgba(255,255,255,0.25);
       }
     }
+
+    /* =========================================
+       【追加】NEWS & TOPICS（参考画像スタイル・最大4件表示）
+    ========================================= */
+    .news-home-list {
+      border-top: 1px solid var(--border-light);
+      max-width: 1040px;
+    }
+
+    .news-home-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 12px;
+      border-bottom: 1px solid var(--border-light);
+      text-decoration: none;
+      color: var(--ink-dark);
+      transition: background-color 0.25s ease, padding-left 0.25s ease;
+    }
+
+    .news-home-row:hover {
+      background-color: var(--bg-subtle);
+      padding-left: 18px;
+    }
+
+    .news-home-date {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink-muted);
+      min-width: 96px;
+      flex-shrink: 0;
+    }
+
+    .news-home-badge {
+      background-color: #e4e4e7;
+      color: var(--ink-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 4px;
+      min-width: 94px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .news-home-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .news-home-arrow {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink-dark);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .news-home-row:hover .news-home-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .news-home-more {
+      max-width: 1040px;
+      margin-top: 32px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .news-home-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border: 1.5px solid var(--ink-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink-dark);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .news-home-more-btn:hover {
+      background-color: var(--ink-dark);
+      color: #ffffff;
+    }
+
+    @media (max-width: 680px) {
+      .news-home-row {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        padding: 18px 6px;
+      }
+      .news-home-title {
+        width: calc(100% - 28px);
+        order: 3;
+        font-size: 0.94rem;
+      }
+      .news-home-arrow {
+        order: 4;
+      }
+      .news-home-more {
+        justify-content: stretch;
+      }
+      .news-home-more-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -944,6 +1054,7 @@
       <li><a href="#instructors">Instructors <span>指導員紹介</span></a></li>
       <li><a href="#faq">Q&amp;A <span>よくある質問</span></a></li>
       <li><a href="#contact">Contact <span>見学・連絡先</span></a></li>
+      <li><a href="#news">News <span>お知らせ・大会結果</span></a></li>
     </ul>
     <div class="contact-btn-row">
       <a href="https://www.instagram.com/toyo2karatedo/" target="_blank" rel="noopener" class="btn-light" style="width:100%;">Instagram (@toyo2karatedo)</a>
@@ -965,6 +1076,7 @@
         <li><a href="#instructors">Instructors <span class="jp-sub">指導員紹介</span></a></li>
         <li><a href="#faq">Q&amp;A <span class="jp-sub">よくある質問</span></a></li>
         <li><a href="#contact">Contact <span class="jp-sub">見学・連絡先</span></a></li>
+        <li><a href="#news">News <span class="jp-sub">お知らせ・大会結果</span></a></li>
       </ul>
 
       <div class="hero-topics">
@@ -1282,6 +1394,50 @@
       </div>
     </section>
 
+    <!-- 【追加】NEWS & TOPICS（大会結果・お知らせ・トピックス／最大4件表示） -->
+    <section class="section-wrap" id="news">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-big-title display-font">News</h2>
+          <p class="section-jp-note">大会結果・お知らせ・トピックス</p>
+        </div>
+      </div>
+
+      <div class="news-home-list" id="homeNewsList">
+        <a href="news.html#news-01" class="news-home-row">
+          <span class="news-home-date en-font">2026.11.20</span>
+          <span class="news-home-badge">大会結果</span>
+          <span class="news-home-title">【大会結果】ここに大会結果のタイトルが入ります</span>
+          <span class="news-home-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a href="news.html#news-02" class="news-home-row">
+          <span class="news-home-date en-font">2026.10.15</span>
+          <span class="news-home-badge">お知らせ</span>
+          <span class="news-home-title">【お知らせ】ここにお知らせのタイトルが入ります</span>
+          <span class="news-home-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a href="news.html#news-03" class="news-home-row">
+          <span class="news-home-date en-font">2026.09.10</span>
+          <span class="news-home-badge">トピックス</span>
+          <span class="news-home-title">【トピックス】ここに合宿・行事などのトピックスが入ります</span>
+          <span class="news-home-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a href="news.html#news-04" class="news-home-row">
+          <span class="news-home-date en-font">2026.08.04</span>
+          <span class="news-home-badge">お知らせ</span>
+          <span class="news-home-title">【夏季休業日のお知らせ】ここにお知らせのタイトルが入ります</span>
+          <span class="news-home-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <div class="news-home-more">
+        <a href="news.html" class="news-home-more-btn">過去のお知らせ・大会結果一覧を見る ↗</a>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section-wrap" id="contact" style="border-bottom:none;">
       <div class="contact-banner" id="contactBanner">
@@ -1425,6 +1581,13 @@
         const isOpen = item.classList.toggle('is-open');
         btn.setAttribute('aria-expanded', String(isOpen));
       });
+    });
+
+    // 6. 【追加】ホームページ側のお知らせ表示を最大4件までに自動制限
+    document.querySelectorAll('#homeNewsList .news-home-row').forEach((row, index) => {
+      if (index >= 4) {
+        row.style.display = 'none';
+      }
     });
   </script>
 </body>
