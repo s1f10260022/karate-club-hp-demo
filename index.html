@@ -9,6 +9,119 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@700&family=Syne:wght@800&display=swap" rel="stylesheet">
   <style>
+    
+    .faq-list {
+      border-top: 1px solid #e4e4e7;
+      max-width: 900px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink-dark);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: var(--theme-color);
+    }
+
+    .faq-q-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .faq-q-mark {
+      font-family: 'Syne', 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--theme-color);
+      transition: color 0.7s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-icon {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      background-color: var(--ink-dark);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-icon::before {
+      top: 9px;
+      left: 2px;
+      width: 16px;
+      height: 2px;
+    }
+
+    .faq-icon::after {
+      top: 2px;
+      left: 9px;
+      width: 2px;
+      height: 16px;
+    }
+
+    .faq-item.is-open .faq-icon::after {
+      transform: rotate(90deg);
+    }
+
+/* スムーズ開閉アニメーション */
+    .faq-answer-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .faq-item.is-open .faq-answer-wrap {
+      grid-template-rows: 1fr;
+  }
+
+    .faq-answer-inner {
+    overflow: hidden;
+    }
+
+    .faq-answer-text {
+      padding: 0 8px 24px 38px;
+      font-size: 0.95rem;
+      color: #3f3f46;
+      line-height: 1.8;
+    }
+  
+    @media (max-width: 640px) {
+      .faq-question {
+        font-size: 0.98rem;
+        padding: 20px 4px;
+      }
+      .faq-answer-text {
+        padding: 0 4px 20px 30px;
+        font-size: 0.92rem;
+      }
+    }
+    
     :root {
       --theme-color: #0f2350; /* 鉄紺 */
       --ink-dark: #141416;
@@ -829,6 +942,7 @@
       <li><a href="#about">About <span>部活紹介</span></a></li>
       <li><a href="#outline">Schedule <span>練習日・概要</span></a></li>
       <li><a href="#instructors">Instructors <span>指導員紹介</span></a></li>
+      <li><a href="#faq">Q&amp;A <span>よくある質問</span></a></li>
       <li><a href="#contact">Contact <span>見学・連絡先</span></a></li>
     </ul>
     <div class="contact-btn-row">
@@ -849,6 +963,7 @@
         <li><a href="#about">About <span class="jp-sub">部活紹介</span></a></li>
         <li><a href="#outline">Schedule <span class="jp-sub">練習日・概要</span></a></li>
         <li><a href="#instructors">Instructors <span class="jp-sub">指導員紹介</span></a></li>
+        <li><a href="#faq">Q&amp;A <span class="jp-sub">よくある質問</span></a></li>
         <li><a href="#contact">Contact <span class="jp-sub">見学・連絡先</span></a></li>
       </ul>
 
@@ -990,13 +1105,13 @@
             <div class="outline-row">
               <dt>練習日・行事予定</dt>
               <dd>
-                <strong>【通常稽古】</strong>毎週月・火・木・金　21:40~22:40<br><br>
+                <strong>【通常稽古】</strong>毎週月・火・木・金 21:40~22:40<br><br>
                 <strong>【年間行事】</strong><br>
                 6月：東洋大学杯全日本二部学生空手道連盟個人選手権大会<br>
                 8月：空手道糸東会全国選手権大会<br>
                 9月：夏合宿<br>
                 11月：空手道糸東会関東大会<br>
-                    　　　東洋大学二部学生空手道選手権大会団体戦・新人戦<br>
+                       東洋大学二部学生空手道選手権大会団体戦・新人戦<br>
                 2月：冬合宿
               </dd>
             </div>
@@ -1050,6 +1165,120 @@
             ここに指導員からのメッセージやプロフィール文が入ります。
           </p>
         </article>
+      </div>
+    </section>
+
+    <!-- Q&A（よくある質問） -->
+    <section class="section-wrap" id="faq">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-big-title display-font">Q&amp;A</h2>
+          <p class="section-jp-note">よくある質問</p>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-q-wrap">
+              <span class="faq-q-mark">Q.</span>
+              <span>赤羽台キャンパスや他キャンパスの学生でも通えますか？</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer-inner">
+              <p class="faq-answer-text">
+                はい、通えます！情報連携学部（赤羽台キャンパス）をはじめ、他キャンパスに所属する学生も歓迎しています。授業が終わってから白山キャンパスの道場（4号館B1F多目的ルーム）へ移動して参加でき、時間割に合わせた遅れての合流や参加曜日の調整も可能です。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-q-wrap">
+              <span class="faq-q-mark">Q.</span>
+              <span>「二部体育会」とありますが、昼間部（一部）の学生も入部できますか？</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer-inner">
+              <p class="faq-answer-text">
+                もちろん入部できます！名称に「二部」とついていますが、一部（昼間部）・二部（イブニングコース）問わず全学部・全学年の学生が所属可能です。授業時間帯の異なる仲間と交流できるのも魅力のひとつです。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-q-wrap">
+              <span class="faq-q-mark">Q.</span>
+              <span>空手未経験・初心者でも大丈夫ですか？</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer-inner">
+              <p class="faq-answer-text">
+                大歓迎です！大学から空手を始めた部員も在籍しています。最初は基本の立ち方・突き・蹴りから先輩や指導員が段階的に丁寧に指導するため、運動経験が少ない方や武道が初めての方でも無理なく始められます。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-q-wrap">
+              <span class="faq-q-mark">Q.</span>
+              <span>授業やアルバイトとの両立はできますか？</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer-inner">
+              <p class="faq-answer-text">
+                可能です。テスト期間前のオフ期間や、アルバイト・ゼミ活動と両立できるようスケジュールを組んでいます。学業や私生活とメリハリをつけながら打ち込める環境です。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-q-wrap">
+              <span class="faq-q-mark">Q.</span>
+              <span>見学や体験に行くとき、何を持っていけばいいですか？</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer-inner">
+              <p class="faq-answer-text">
+                運動できる服装（Tシャツ・ジャージ等）と飲み物、タオルがあれば大丈夫です！道着を持っていなくても体験できます。まずは道場の雰囲気を見るだけの「見学のみ」も大歓迎ですので、私服のまま気軽にお越しください。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span class="faq-q-wrap">
+              <span class="faq-q-mark">Q.</span>
+              <span>マネージャーも募集していますか？</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer-wrap">
+            <div class="faq-answer-inner">
+              <p class="faq-answer-text">
+                はい、選手・マネージャーともに募集中です！練習のサポートや大会での記録、Instagram・Xでの広報活動など、チームを支える大切な役割として活躍できます。
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1186,6 +1415,15 @@
         galleryCards.forEach(card => {
           card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
         });
+      });
+    });
+
+    // 5. Q&Aアコーディオン開閉
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
       });
     });
   </script>
